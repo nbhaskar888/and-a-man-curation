@@ -152,10 +152,10 @@
   .lenses-intro { max-width: 600px; margin-bottom: 64px; }
   .lenses-intro .section-label { color: var(--terracotta); }
   .lenses-intro .section-title { color: var(--cream); }
-  .lenses-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border: 1px solid #2a2a2a; }
+  .lenses-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border: 1px solid rgba(255,255,255,0.1); }
   .lens {
     padding: 48px 40px;
-    border-right: 1px solid #2a2a2a;
+    border-right: 1px solid rgba(255,255,255,0.1);
     position: relative;
   }
   .lens:last-child { border-right: none; }
@@ -166,7 +166,7 @@
   .lens-num {
     font-family: 'Playfair Display', serif;
     font-size: 52px; font-weight: 400; line-height: 1;
-    color: #2a2a2a; margin-bottom: 20px;
+    color: rgba(240, 235, 220, 0.28); margin-bottom: 20px;
   }
   .lens-title {
     font-family: 'Playfair Display', serif;
@@ -184,7 +184,7 @@
   .lens-body em { color: var(--cream); font-style: italic; }
   .lens-test {
     margin-top: 28px; padding-top: 24px;
-    border-top: 1px solid #2a2a2a;
+    border-top: 1px solid rgba(255,255,255,0.1);
     font-size: 13.5px; font-weight: 300; color: #888; line-height: 1.85;
   }
   .lens-test strong { color: var(--terracotta); font-weight: 500; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: 8px; }
@@ -206,15 +206,15 @@
   /* ── FILTER ── */
   .filter-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--light-grey); margin-top: 56px; }
   .filter-card { background: var(--warm-white); padding: 32px 32px 36px; }
-  .filter-card-wide { grid-column: 1 / -1; background: #1a1a1a; padding: 36px 40px; display: grid; grid-template-columns: 80px 1fr 1fr; gap: 32px; align-items: start; }
-  .filter-card-wide .filter-num { color: #2e2e2e; }
-  .filter-card-wide .filter-q { color: var(--cream); font-size: 18px; }
-  .filter-card-wide .filter-a { color: var(--mid-grey); }
-  .filter-split { display: flex; gap: 24px; margin-top: 8px; }
-  .filter-split-item { flex: 1; border-left: 2px solid var(--terracotta); padding-left: 14px; }
-  .filter-split-item .fsi-pct { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--terracotta); font-weight: 600; }
-  .filter-split-item .fsi-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); margin: 2px 0 4px; }
-  .filter-split-item .fsi-desc { font-size: 12px; font-weight: 300; color: var(--mid-grey); line-height: 1.6; }
+  .filter-card-wide { grid-column: 1 / -1; background: #1a1a1a; padding: 52px 48px 48px; display: flex; flex-direction: column; gap: 0; }
+  .filter-wide-header { margin-bottom: 36px; }
+  .filter-wide-title { font-family: 'Playfair Display', serif; font-size: clamp(22px, 2.8vw, 36px); font-weight: 400; font-style: italic; color: var(--cream); line-height: 1.25; margin-bottom: 16px; }
+  .filter-wide-desc { font-size: 14px; font-weight: 300; color: var(--mid-grey); line-height: 1.85; max-width: 620px; }
+  .filter-wide-split { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; }
+  .filter-split-item { border-left: 2px solid var(--terracotta); padding-left: 20px; padding-right: 24px; }
+  .filter-split-item .fsi-pct { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--terracotta); font-weight: 400; line-height: 1; margin-bottom: 10px; }
+  .filter-split-item .fsi-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); margin-bottom: 8px; }
+  .filter-split-item .fsi-desc { font-size: 13px; font-weight: 300; color: var(--mid-grey); line-height: 1.7; }
   .filter-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 400; color: var(--light-grey); line-height: 1; margin-bottom: 16px; }
   .filter-q { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; line-height: 1.3; margin-bottom: 12px; }
   .filter-a { font-size: 13px; font-weight: 300; line-height: 1.8; color: #4a4a4a; }
@@ -276,6 +276,15 @@
   .brand-hero .brand-body { padding: 40px 40px 36px; justify-content: space-between; }
   .brand-hero .brand-name { font-size: 26px; }
 
+  /* ── COMMERCIAL REALITY BAR ── */
+  .commercial-bar { background: var(--ink); padding: 72px 80px; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .commercial-bar-label { font-size: 10px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 28px; }
+  .commercial-bar-text { font-family: 'Playfair Display', serif; font-size: clamp(17px, 2.2vw, 26px); font-weight: 400; font-style: italic; color: var(--cream); line-height: 1.7; max-width: 820px; }
+  .commercial-bar-text strong { font-style: normal; color: var(--terracotta); font-weight: 400; }
+
+  .brand-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(196,98,45,0.35); padding-bottom: 1px; transition: border-color 0.2s; }
+  .brand-name a:hover { border-bottom-color: var(--terracotta); }
+
   /* ── PROOF STRIP ── */
   .proof-strip {
     background: var(--cream); padding: 60px 80px;
@@ -318,7 +327,7 @@
     }
 
     /* ── Each major section breaks onto its own page ── */
-    .cover, .manifesto, .lenses-bg, .brands-header,
+    .cover, .manifesto, .lenses-bg, .brands-header, .commercial-bar,
     .cat-section, .boundary-section, .filter-section, .proof-strip, .closing {
       page-break-before: always;
       break-before: page;
@@ -356,7 +365,7 @@
     <div class="cover-title">Indian<br><em>Design.</em></div>
     <div class="cover-rule"></div>
     <div class="cover-sub">
-      A clear, defensible point of view on what And-a-Man stands for, what it curates, and the 29 designers who prove the universe is real.
+      A clear, defensible point of view on what And-a-Man stands for, what it curates, and the 25 designers who prove the universe is real.
     </div>
   </div>
 
@@ -386,11 +395,11 @@
       </div>
       <div class="mst">
         <div class="mst-num">II</div>
-        <div class="mst-text"><strong>We are that home.</strong> Not a boutique. Not a department store. Not a concept pop-up. A permanent, living platform for the designers who are showing the world that Indian design leads something.</div>
+        <div class="mst-text"><strong>We are that home.</strong> A permanent, living platform for the designers who are showing the world that Indian design leads — not explaining, not imitating, but leading.</div>
       </div>
       <div class="mst">
         <div class="mst-num">III</div>
-        <div class="mst-text"><strong>The edit is the argument.</strong> Every brand on our floor is a sentence in the same statement: that the new Indian design voice — contemporary, craft-intelligent, globally wearable — is the most exciting thing happening in fashion right now.</div>
+        <div class="mst-text"><strong>The edit is the argument.</strong> Every brand on the floor reinforces one idea: contemporary Indian design is not emerging — it is leading.</div>
       </div>
     </div>
   </div>
@@ -403,16 +412,16 @@
   <div class="section-title">India doesn't imitate anything.<br><em>It leads something.</em></div>
   <div class="prose">
     <p>
-      For decades, Indian fashion operated in two modes: the heritage mode — reviving craft traditions, celebrating the artisan, looking backward — and the aspiration mode, looking toward Paris, Milan, and New York for what "modern" was supposed to mean. Both modes were, in their own way, deferential. Both assumed that the reference point was elsewhere.
+      Not Indian fashion. Contemporary Indian design. The distinction is intent.
     </p>
     <p>
-      That moment is over. A generation of Indian designers has emerged who don't look to Paris for permission and don't look to the past for identity. They look at the world and think: <strong>we can do something with that. Something that could only have come from here.</strong> Kartik Research on Orchard Street. Péro in 350 stores across 35 countries. Dhruv Kapoor at 40+ global stockists. Suket Dhir, International Woolmark Prize winner. The evidence is overwhelming.
+      For decades, Indian designers operated in one of two modes: heritage — celebrating the artisan, looking backward — or aspiration, looking toward Paris for what "modern" was supposed to mean. Both were deferential. Both assumed the reference point was elsewhere.
     </p>
     <p>
-      And-a-Man exists to give this movement a home in India — a curated, permanent, beautifully edited space where the designers defining the new Indian design voice are presented together for the first time. We are not a craft store and we are not a luxury department store. We are <strong>the platform that was always missing</strong> — the one that treats Indian design with the same editorial seriousness that Colette gave French design, that Dover Street Market gave conceptual fashion.
+      That moment is over. Kartik Research on Orchard Street. Péro in 350 stores across 35 countries. Dhruv Kapoor at 40+ global stockists. Suket Dhir, International Woolmark Prize winner. The evidence is overwhelming.
     </p>
     <p>
-      The India the world is beginning to understand has been here all along. We're just making it impossible to miss.
+      And-a-Man is <strong>the platform that was always missing</strong> — the one that treats Indian design with the same editorial seriousness that Colette gave French design, that Dover Street Market gave conceptual fashion.
     </p>
   </div>
 </div>
@@ -443,13 +452,14 @@
       <div class="lens-title">Made with Intelligence</div>
       <div class="lens-subtitle">The Quality Floor</div>
       <div class="lens-body">
-        The product is made with genuine material and process knowledge. This could be handloom mastery. Natural dye expertise. Innovative textile exploration. Exceptional construction. <em>But never generic commercial fabric with no craft thinking behind it.</em>
-        <br><br>
-        This lens sets the quality floor, not the identity definition. We are not saying every brand must be "craft-based" in the traditional sense. We are saying every brand must know what it's made of — and why. A designer using a technical fabric in a conceptually rigorous way passes this test. A brand using polyester because it's cheap does not.
+        The product reflects real material and process knowledge. Handloom. Natural dyes. Textile innovation. Precise construction.<br>
+        <em>Never generic fabric with no thinking behind it.</em><br><br>
+        This sets the quality floor — not the identity. We are not saying every brand must be craft-based. We are saying every brand must know what it's made of — and why.<br><br>
+        A designer using technical fabric with intent passes. Using polyester because it's cheap does not.
       </div>
       <div class="lens-test">
         <strong>The test</strong>
-        Ask the designer: why this fabric, why this process? If the answer is specific, intelligent, and reveals material thinking — they're in conversation. If the answer is generic, the brand is not ready for us.
+        Ask: why this fabric, why this process? If the answer is specific and reveals material thinking — they're in. If it's generic — they're not ready.
       </div>
     </div>
 
@@ -459,13 +469,14 @@
       <div class="lens-title">Wears like the World</div>
       <div class="lens-subtitle">The Silhouette Standard</div>
       <div class="lens-body">
-        Every piece must be wearable in 2026 by someone whose wardrobe also includes Lemaire, Auralee, Loewe. Not occasion-wear. Not costume. <em>Clothes for the life your customer actually lives</em> — in Mumbai on a Tuesday, in London at a gallery opening, in New York at a dinner.
-        <br><br>
-        This is not about looking Western. It is about looking current — which is a different thing entirely. The Indian designer who has mastered this is not imitating anything. They are creating a silhouette that belongs to right now, made with materials and knowledge that are irreplaceable. That combination is precisely what the global fashion market is looking for and has not yet found enough of.
+        Every piece must feel current. Wearable in a wardrobe that includes Lemaire, Auralee, Loewe.<br>
+        Not occasion-wear. Not costume. <em>Clothes for real life</em> — Mumbai on a Tuesday, London at a gallery, New York at dinner.<br><br>
+        This is not about looking Western. It's about looking now.<br><br>
+        The best Indian designers aren't imitating. They're building silhouettes that belong to the present — using materials and knowledge that are uniquely theirs. That combination is still rare. That's the opportunity.
       </div>
       <div class="lens-test">
         <strong>The test</strong>
-        Could this piece coexist in a wardrobe with the best international labels — not as an "ethnic" piece, but as a design equal? If yes, we're interested. If it only makes sense at a wedding or festival, it isn't for And-a-Man.
+        Does this piece sit naturally with the best global labels — not as "ethnic," but as an equal? If yes — we're interested. If it only works at a wedding — it's not for us.
       </div>
     </div>
 
@@ -475,13 +486,15 @@
       <div class="lens-title">Sounds like India</div>
       <div class="lens-subtitle">The Voice Test</div>
       <div class="lens-body">
-        The designer's point of view is specifically, irreducibly shaped by being Indian. Not because they use Indian motifs or Indian fabrics. Because the way they see beauty, proportion, colour, the body — it is formed by an Indian sensibility, expressed with contemporary confidence.
-        <br><br>
-        <em>No apology. No nostalgia. No imitation.</em> Just the clear signal: this came from here, and here is somewhere. This is the hardest lens to articulate and the easiest to feel. Remove the label from the garment. Is the Indian authorship still visible? Not as decoration, but as a way of thinking? If yes, it passes.
+        The designer's point of view is irreducibly Indian. Not through motifs or materials — but through how they see proportion, colour, and the body.<br><br>
+        <em>No apology. No nostalgia. No imitation.</em> Just a clear signal: this came from here — and here matters.<br><br>
+        This is the hardest lens to define, and the easiest to feel.<br><br>
+        Remove the label. Is India still in the room?<br>
+        Not as decoration — as a way of thinking.
       </div>
       <div class="lens-test">
         <strong>The test</strong>
-        Remove the label. Remove the brand story. Is there something in the garment itself — the proportion, the palette, the way it sits on a body — that could only have come from an Indian design intelligence? If that's visible without explanation, it belongs here.
+        Remove the label. Remove the story. Does the garment itself carry an Indian design intelligence? If yes — it belongs. If it needs explanation — it doesn't.
       </div>
     </div>
   </div>
@@ -497,48 +510,51 @@
       <div class="b-title">What And-a-Man is not</div>
       <div class="b-item">
         <div class="b-dot"></div>
-        <div class="b-text"><strong>Not a craft archive</strong>Reverence for Indian textile tradition is not sufficient reason to carry a brand. Beautiful weaving with no design point of view does not earn a place here.</div>
+        <div class="b-text"><strong>Not a craft archive</strong>Beautiful weaving alone is not a curation criterion. There must be a design point of view.</div>
       </div>
       <div class="b-item">
         <div class="b-dot"></div>
-        <div class="b-text"><strong>Not a heritage boutique</strong>We are not selling the past. We carry the past only when a designer has done the work of translating it into something alive right now.</div>
+        <div class="b-text"><strong>Not occasion-wear</strong>We carry pieces for the life your customer actually lives — including the wedding, but especially the Tuesday after.</div>
       </div>
       <div class="b-item">
         <div class="b-dot"></div>
-        <div class="b-text"><strong>Not costume occasion-wear</strong>We are not a bridal house or a festival edit. But we carry occasion that feels like real life — elevated, considered, worn once for a wedding and again on a Tuesday. If a brand's product only works at an event and nowhere else, it is not for us. The test is not the occasion; it is whether the garment has a life beyond it.</div>
+        <div class="b-text"><strong>Not a boutique or department store</strong>Not a pop-up, not a concept space. A permanent platform. That is the point.</div>
       </div>
       <div class="b-item">
         <div class="b-dot"></div>
-        <div class="b-text"><strong>Not a lesser alternative to Western luxury</strong>We do not position Indian design as a value-for-money substitute for Loewe or The Row. We position it as a different and equal kind of excellence.</div>
-      </div>
-      <div class="b-item">
-        <div class="b-dot"></div>
-        <div class="b-text"><strong>Not a generic sustainable fashion store</strong>Environmental ethics are good. They are not, alone, a curation criterion. A brand whose identity is "sustainable fashion made in India" without a specific Indian design voice does not pass the third lens.</div>
+        <div class="b-text"><strong>Not a substitute for Western luxury</strong>Indian design is not better value — it is a different and equal kind of excellence.</div>
       </div>
     </div>
     <div class="b-col">
       <div class="b-title">What And-a-Man is</div>
       <div class="b-item">
         <div class="b-dot"></div>
-        <div class="b-text"><strong>A living editorial</strong>Every season's floor is a single coherent statement. The edit evolves based on sell-through, repeat demand, and cultural relevance — in that order. Brands that strengthen the argument and move product stay. Brands that do one without the other are reviewed every 60 days.</div>
+        <div class="b-text"><strong>A living editorial</strong>The floor is a single coherent statement, reviewed every 60 days. Brands that strengthen the argument and move product stay. Brands that do one without the other are reviewed.</div>
       </div>
       <div class="b-item">
         <div class="b-dot"></div>
-        <div class="b-text"><strong>A platform for India's design voice</strong>We carry designers who are showing the world what Indian design looks like at its most confident. The edit is the proof that this voice is real, varied, and world-class.</div>
+        <div class="b-text"><strong>A platform for India's design voice</strong>The edit is the proof this voice is real, varied, and world-class.</div>
       </div>
       <div class="b-item">
         <div class="b-dot"></div>
-        <div class="b-text"><strong>Globally fluent, specifically Indian</strong>Our designers speak the language of contemporary global fashion and have a point of view that is irreducibly Indian. Both simultaneously. Neither in compromise of the other.</div>
+        <div class="b-text"><strong>Globally fluent, specifically Indian</strong>Both simultaneously. Neither in compromise of the other.</div>
       </div>
       <div class="b-item">
         <div class="b-dot"></div>
-        <div class="b-text"><strong>Taste with discipline</strong>Culture builds desire. Numbers keep the doors open. Every decision — which brand to carry, which event to programme, which capsule to drop — is held against both tests simultaneously.</div>
-      </div>
-      <div class="b-item">
-        <div class="b-dot"></div>
-        <div class="b-text"><strong>The trusted edit for a fatigued market</strong>1,800+ Indian fashion brands = search fatigue. We are the answer to the question every culturally-engaged Indian consumer is asking: who do I trust to show me the best of this?</div>
+        <div class="b-text"><strong>The trusted edit</strong>1,800+ Indian fashion brands means search fatigue. We are the answer: who to trust to show you the best of this.</div>
       </div>
     </div>
+  </div>
+</div>
+
+
+<!-- ══ COMMERCIAL REALITY ════════════════════════════════════════════ -->
+<div class="commercial-bar">
+  <div class="commercial-bar-label">Commercial Reality</div>
+  <div class="commercial-bar-text">
+    Culture builds desire. <strong>Sell-through builds the business.</strong><br>
+    If it doesn't sell in 60 days, it leaves. If it needs discounting, it was a mistake.<br>
+    If it cannot repeat, it does not scale.
   </div>
 </div>
 
@@ -546,62 +562,58 @@
 <!-- ══ FILTER ═══════════════════════════════════════════════════════ -->
 <div class="section" style="background: var(--cream);">
   <div class="section-label">§ 04 — The Practical Filter</div>
-  <div class="section-title">Six questions we ask<br><em>every brand.</em></div>
+  <div class="section-title">Every brand must pass<br><em>six filters.</em></div>
   <div class="filter-grid">
     <div class="filter-card">
       <div class="filter-num">01</div>
-      <div class="filter-q">What is it made of, and why?</div>
-      <div class="filter-a">We are looking for a specific, intelligent answer — not "it's sustainable" or "it's handmade." The answer should reveal that the designer thinks in materials. Vague answers fail this test immediately.</div>
+      <div class="filter-q">Material intelligence</div>
+      <div class="filter-a">Fabric is the thinking. Why this material, this process? The answer must be specific. Vague answers fail immediately.</div>
     </div>
     <div class="filter-card">
       <div class="filter-num">02</div>
-      <div class="filter-q">Could a Lemaire customer wear this on a Tuesday?</div>
-      <div class="filter-a">Our shorthand test for silhouette modernity and wearability. Not "is this Lemaire?" but "could the same person who loves Lemaire also love this?" If yes, we're interested.</div>
+      <div class="filter-q">Wearability</div>
+      <div class="filter-a">Can it live beyond the occasion? A Lemaire customer on a Mumbai Tuesday is the test. If it only works at a wedding, it isn't for us.</div>
     </div>
     <div class="filter-card">
       <div class="filter-num">03</div>
-      <div class="filter-q">Remove the label. Is India still in the room?</div>
-      <div class="filter-a">The Indian design intelligence must be visible in the garment itself — not just in the brand story or the swing tag. If the Indianness disappears without the label, the brand fails the third lens.</div>
+      <div class="filter-q">Indian POV</div>
+      <div class="filter-a">Remove the label. Is India still in the room? If yes — it belongs. If not — it doesn't.</div>
     </div>
     <div class="filter-card">
       <div class="filter-num">04</div>
-      <div class="filter-q">Does the designer have a genuine point of view?</div>
-      <div class="filter-a">Not a mood board. Not a trend response. A specific, personal, defensible way of seeing the world — one that would produce a recognisable design language even if the brand name changed.</div>
+      <div class="filter-q">Design clarity</div>
+      <div class="filter-a">A genuine point of view, not a mood board. The brand should be recognisable without its name.</div>
     </div>
     <div class="filter-card">
       <div class="filter-num">05</div>
-      <div class="filter-q">Can the brand operate with us professionally?</div>
-      <div class="filter-a">Consignment model requires fulfilment within 7 working days, inventory discipline, and 60-day performance review readiness. Great product and operational chaos are not a trade we make.</div>
+      <div class="filter-q">Sell-through</div>
+      <div class="filter-a">Does it work at ₹8–25K in this city, within 60 days? Commercial viability is not optional.</div>
     </div>
     <div class="filter-card">
       <div class="filter-num">06</div>
-      <div class="filter-q">Does the floor get stronger with this brand in it?</div>
-      <div class="filter-a">No brand is assessed in isolation. Does it add a dimension — in material, silhouette, price point, geography, or gender balance — that the edit currently lacks? Or does it double up on a mood we already have?</div>
+      <div class="filter-q">Operational discipline</div>
+      <div class="filter-a">Fulfilment in 7 days. Inventory clarity. 60-day review readiness. Great product and operational chaos are not a trade we make.</div>
     </div>
     <div class="filter-card-wide">
-      <div class="filter-num">07</div>
-      <div>
-        <div class="filter-q">Does this sell at our price band, in our city, within 30 days?</div>
-        <div class="filter-a" style="margin-top:10px;">Culture builds desire. Numbers keep the doors open. A brand that fails this test is not rejected — it is reclassified. Editorial content earns its place through pull and conversation. Retail inventory earns its place through sell-through. Both have a role. Neither is confused for the other.</div>
+      <div class="filter-wide-header">
+        <div class="filter-wide-title">The floor is structured, not just curated.</div>
+        <div class="filter-wide-desc">Taste without commercial architecture is a gallery. We are a store. Every buying decision maps to a specific slot in the floor structure below — and is held accountable to it.</div>
       </div>
-      <div>
-        <div class="filter-a" style="color:var(--mid-grey); font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:14px;">The floor split</div>
-        <div class="filter-split">
-          <div class="filter-split-item">
-            <div class="fsi-pct">60%</div>
-            <div class="fsi-label">Sell-through drivers</div>
-            <div class="fsi-desc">High-conversion pieces. Wearable, wanted, priced right for Mumbai. The commercial spine of the floor.</div>
-          </div>
-          <div class="filter-split-item">
-            <div class="fsi-pct">30%</div>
-            <div class="fsi-label">Directional</div>
-            <div class="fsi-desc">Brands pulling the conversation forward. May sell slowly but define what the store stands for.</div>
-          </div>
-          <div class="filter-split-item">
-            <div class="fsi-pct">10%</div>
-            <div class="fsi-label">Experimental edge</div>
-            <div class="fsi-desc">Pure editorial. Here because the argument needs it — not because it will clear in 30 days.</div>
-          </div>
+      <div class="filter-wide-split">
+        <div class="filter-split-item">
+          <div class="fsi-pct">60%</div>
+          <div class="fsi-label">Sell-through drivers</div>
+          <div class="fsi-desc">High-conversion pieces. Wearable, wanted, priced right for Mumbai. The commercial spine.</div>
+        </div>
+        <div class="filter-split-item">
+          <div class="fsi-pct">30%</div>
+          <div class="fsi-label">Directional</div>
+          <div class="fsi-desc">Pulling the conversation forward. May sell slowly but define what the floor stands for.</div>
+        </div>
+        <div class="filter-split-item">
+          <div class="fsi-pct">10%</div>
+          <div class="fsi-label">Experimental edge</div>
+          <div class="fsi-desc">Pure editorial. Here because the argument needs it — not because it will clear in 60 days.</div>
         </div>
       </div>
     </div>
@@ -612,10 +624,10 @@
 <!-- ══ BRAND UNIVERSE ═════════════════════════════════════════════════ -->
 <div class="brands-header">
   <div class="section-label">§ 05 — The Brand Universe</div>
-  <div class="section-title">29 designers who prove<br><em>the argument is real.</em></div>
+  <div class="section-title">25 designers who prove<br><em>the argument is real.</em></div>
   <div class="prose">
     <p>
-      These are not all confirmed opening-day stockists. They are the proof of concept: evidence that the And-a-Man universe is populated, coherent, and commercially real across five distinct creative modes. Together, they form a single editorial statement. Individually, each is a sentence in it.
+      These are not all confirmed opening-day stockists. They are the proof of concept: evidence that the And-a-Man universe is populated, coherent, and commercially real across six distinct creative modes. Together, they form a single editorial statement. Individually, each is a sentence in it.
     </p>
   </div>
 </div>
@@ -626,38 +638,34 @@
   <div class="cat-label">Category I — The Global Voice · Indian Design, International Stage</div>
   <div class="cat-desc">Designers with a direct, proven presence in global fashion — on runways, in international stockists, on Orchard Street. The brands that make the argument irrefutable: India is already leading.</div>
 
-  <!-- Hero: Kartik Research -->
-  <div class="brand-hero">
-    <div class="brand-img-wrap"><img class="brand-img" src="https://www.highsnobiety.com/static-assets/dato/1704878532-main01.jpg?fp-x=0.5&fp-y=0.5&fit=crop&auto=compress%2Cformat&cs=srgb&ar=2000%3A1333&w=600" alt="Kartik Research" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-    <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #1a1a2a, #2a2a4a);">Kartik Research</div>
-    <div class="brand-body">
-      <div class="brand-tags">
-        <span class="brand-tag tag-m">Men</span>
-        <span class="brand-tag tag-w">Women</span>
-        <span class="brand-tag tag-g">Global</span>
-      </div>
-      <div class="brand-name">Kartik Research</div>
-      <div class="brand-founder">Kartik Kumra · Delhi / New York</div>
-      <div class="brand-desc">
-        Paris Men's runway debut. New Delhi flagship "Research Research" at M-Block GK2 (1,400 sq ft). New York store at 61 Orchard Street, opened April 2025. Kartik Research is the clearest single proof that Indian menswear is not a regional conversation — it is a global one. The design language is conceptual, minimal, and deeply considered: garments that look like they've been researched rather than designed, in the best possible sense. The brand's simultaneous presence in Delhi and New York is the physical argument for And-a-Man's own Phase 3 ambition. If Kartik Research can be on Orchard Street, And-a-Man can be in London.
-      </div>
-      <div class="brand-footer">
-        <div class="brand-price"><span>Price Range</span>₹15,000 – ₹65,000+</div>
-        <div class="brand-fit">The brand that makes the global argument in a single storefront. Essential.</div>
+  <div class="brand-grid">
+    <div class="brand-card">
+      <div class="brand-img-wrap"><img class="brand-img" src="https://theglassmagazine.com/wp-content/uploads/2024/01/KARTIK_RESEARCH_LOOK03_033-scaled.jpg" alt="Kartik Research" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
+      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #1a1a2a, #2a2a4a);">Kartik Research</div>
+      <div class="brand-body">
+        <div class="brand-tags">
+          <span class="brand-tag tag-m">Men</span>
+          <span class="brand-tag tag-w">Women</span>
+          <span class="brand-tag tag-g">Global</span>
+        </div>
+        <div class="brand-name"><a href="https://www.kartikresearch.com/" target="_blank" rel="noopener noreferrer">Kartik Research</a></div>
+        <div class="brand-founder">Kartik Kumra · Delhi / New York</div>
+        <div class="brand-desc">Paris Men's runway. New Delhi flagship. New York on Orchard Street, April 2025. The clearest proof that Indian design is not a regional conversation — it is a global one. Conceptual, minimal, deeply considered: garments that look like they've been researched rather than designed.</div>
+        <div class="brand-footer">
+          <div class="brand-price"><span>Price Range</span>₹15,000 – ₹65,000+</div>
+          <div class="brand-fit">The brand that makes the global argument in a single storefront. Essential.</div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="brand-grid">
     <div class="brand-card">
       <div class="brand-img-wrap"><img class="brand-img" src="https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000,format=auto/m/c83b/95e8/5114/5ca2/9b1c/39ad/0c2d/88db/9114/92ba/92ba.jpg" alt="Péro" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #C4622D, #E8904A);">péro</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span><span class="brand-tag tag-g">Global</span></div>
-        <div class="brand-name">péro</div>
+        <div class="brand-name"><a href="https://pero.co.in/" target="_blank" rel="noopener noreferrer">péro</a></div>
         <div class="brand-founder">Aneeth Arora · Est. 2009</div>
         <div class="brand-desc">
-          350 stores. 35 countries. Vogue India Fashion Fund winner. Péro is the single most important data point in the argument that Indian craft-forward design has genuine global distribution. The irony is that it is far better known internationally than in India's multi-brand retail. And-a-Man corrects that. Aneeth Arora's work is joyful, handmade, and wildly original — each piece carries thousands of hours of craft intelligence, presented in silhouettes that could be worn anywhere in the world without explanation.
+          350 stores. 35 countries. Vogue India Fashion Fund winner. The single clearest data point: Indian craft-forward design has genuine global distribution. Aneeth Arora's work is joyful, handmade, wildly original — craft intelligence in silhouettes worn anywhere in the world without explanation.
         </div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹8,000 – ₹35,000</div>
@@ -671,10 +679,10 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #2a1a3a, #5a3a7a);">Dhruv Kapoor</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span><span class="brand-tag tag-g">Global</span></div>
-        <div class="brand-name">Dhruv Kapoor</div>
+        <div class="brand-name"><a href="https://dhruvkapoor.com/" target="_blank" rel="noopener noreferrer">Dhruv Kapoor</a></div>
         <div class="brand-founder">Dhruv Kapoor · Mumbai</div>
         <div class="brand-desc">
-          40+ global stockists. International fashion weeks. A designer who has built a genuinely global design language while remaining specifically, unambiguously Indian in his references and sensibility. The market-specific observation — minimal clean cuts in Europe, richer colour in other markets — reveals a designer who has done the work of understanding global taste without losing his own. His main line (₹25K–₹1.5L) passes all three lenses with distinction. The BOAT collaboration and Kapoor 2.0 line (₹3.5K–₹13.5K) show commercial intelligence to match the design ambition.
+          40+ global stockists. International fashion weeks. A global design language that remains unambiguously Indian. Minimal clean cuts in Europe, richer colour elsewhere — understands global taste without losing his own. The BOAT collaboration and Kapoor 2.0 line (₹3.5K–₹13.5K) show commercial intelligence to match.
         </div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹25,000 – ₹1,50,000</div>
@@ -688,10 +696,10 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #1C3A4A, #2E6080);">SUKETDHIR</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-m">Men</span><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-g">Global</span></div>
-        <div class="brand-name">SUKETDHIR</div>
+        <div class="brand-name"><a href="https://www.suketdhir.com/" target="_blank" rel="noopener noreferrer">SUKETDHIR</a></div>
         <div class="brand-founder">Suket Dhir · Est. 2011</div>
         <div class="brand-desc">
-          International Woolmark Prize for Menswear, 2016 — the only Asian winner in the award's history. Suket Dhir's work is the best single argument against the idea that "Indian" and "global" are different registers of fashion. His ikat, brocade, cashmere, and khadi silhouettes are contemporary without being Western, Indian without being ethnic. His public philosophy — that the reference point matters less than the intelligence you bring to it — is the And-a-Man curation philosophy in designer form.
+          International Woolmark Prize for Menswear, 2016 — the only Asian winner. Ikat, brocade, cashmere, khadi in silhouettes that are contemporary without being Western, Indian without being ethnic. His philosophy — the reference point matters less than the intelligence you bring to it — is the And-a-Man curation philosophy in designer form.
         </div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹8,500 – ₹38,000</div>
@@ -714,10 +722,10 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #8B6914, #C4A24A);">Raw Mango</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name">Raw Mango</div>
+        <div class="brand-name"><a href="https://rawmango.com/" target="_blank" rel="noopener noreferrer">Raw Mango</a></div>
         <div class="brand-founder">Sanjay Garg · Est. 2008</div>
         <div class="brand-desc">
-          Raw Mango transformed Chanderi — a weaving tradition on the edge of irrelevance — into one of the most coveted fabrics in contemporary Indian wardrobes. Sanjay Garg's genius is in colour and restraint: deep indigos, burnt ochres, and a formal clarity that the best minimalist labels anywhere in the world would respect. London Fashion Week, 2026. The definition of Indian craft intelligence expressed at the highest level of design ambition.
+          Raw Mango transformed Chanderi — a tradition on the edge of irrelevance — into one of the most coveted fabrics in Indian wardrobes. Sanjay Garg's genius: colour and restraint. Deep indigos, burnt ochres, a formal clarity the best minimalist labels would respect. London Fashion Week, 2026.
         </div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹6,500 – ₹45,000</div>
@@ -731,10 +739,10 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #5C6B4A, #8A9E72);">Anavila</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name">Anavila</div>
+        <div class="brand-name"><a href="https://www.anavila.com/" target="_blank" rel="noopener noreferrer">Anavila</a></div>
         <div class="brand-founder">Anavila Misra · Est. 2012</div>
         <div class="brand-desc">
-          Anavila Misra invented a category: the linen sari. Before her, linen was a fabric for shirts. After her, it became the material of choice for a generation of women who wanted the grace of a drape without the weight of silk. Her palette is earth — sand, sage, rust, ivory — and her silhouettes are deceptively simple. Material intelligence executed with complete formal confidence. A permanent fixture in any serious edit of Indian design.
+          Anavila Misra invented a category: the linen sari. Before her, linen was for shirts. After her, the material of choice for women who wanted the grace of a drape without the weight of silk. Earth palette — sand, sage, rust, ivory. Deceptively simple. Material intelligence with complete formal confidence.
         </div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹9,000 – ₹32,000</div>
@@ -748,10 +756,10 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #1a1a2e, #3A3A5C);">Bodice</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name">Bodice</div>
+        <div class="brand-name"><a href="https://bodicestudio.com/" target="_blank" rel="noopener noreferrer">Bodice</a></div>
         <div class="brand-founder">Ruchika Sachdeva · Est. 2011</div>
         <div class="brand-desc">
-          London College of Fashion, Vivienne Westwood, Vogue India Fashion Fund winner, International Woolmark finalist. Ruchika Sachdeva built a label that is genuinely new — not a translation of Western minimalism, not a revival of Indian tradition, but a design language created specifically for the Indian woman who wants neither. That's what the third lens looks like when a designer executes it perfectly.
+          London College of Fashion, Vivienne Westwood, Vogue India Fashion Fund winner, International Woolmark finalist. A design language created specifically for the Indian woman who wants neither Western minimalism nor Indian tradition revival — but something genuinely new. The third lens, perfectly executed.
         </div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹9,500 – ₹38,000</div>
@@ -765,10 +773,10 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #2C3E50, #4A6278);">A&T</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name">Abraham &amp; Thakore</div>
+        <div class="brand-name"><a href="https://abrahamandthakore.com/" target="_blank" rel="noopener noreferrer">Abraham &amp; Thakore</a></div>
         <div class="brand-founder">David Abraham &amp; Rakesh Thakore · Est. 1992</div>
         <div class="brand-desc">
-          Thirty years. NID graduates. Handcrafted textiles in silhouettes that draw from global fashion while belonging entirely to an Indian design vocabulary. Abraham & Thakore are the proof that this isn't a new category — it's a mature one with serious intellectual lineage. On our floor they are the institutional authority: the elder statesmen who demonstrate that contemporary Indian design didn't begin last season.
+          Thirty years. NID graduates. Handcrafted textiles in silhouettes that draw from global fashion while belonging entirely to an Indian design vocabulary. The proof this is a mature category with serious intellectual lineage — not something that started last season.
         </div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹12,000 – ₹55,000</div>
@@ -782,10 +790,10 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #2A2A2A, #4A4A4A);">Antar-Agni</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-m">Men</span><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name">Antar-Agni</div>
+        <div class="brand-name"><a href="https://antar-agni.com/" target="_blank" rel="noopener noreferrer">Antar-Agni</a></div>
         <div class="brand-founder">Ujjawal Dubey · Est. 2013</div>
         <div class="brand-desc">
-          "Between fire" — the name describes the design philosophy with exact precision. Ujjawal Dubey creates garments between tradition and modernity, between structure and flow, between Indian craft and global silhouette language. International Woolmark Prize finalist. His menswear is among the most architecturally sophisticated being produced in India — draped, layered, and built with a depth of formal intelligence that rewards extended looking.
+          "Between fire." Tradition and modernity, structure and flow, Indian craft and global silhouette. International Woolmark Prize finalist. Among the most architecturally sophisticated garments being produced in India — draped, layered, formal intelligence that rewards looking.
         </div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹9,000 – ₹40,000</div>
@@ -799,10 +807,10 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #5C3D2E, #A07055);">Ka-Sha</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name">Ka-Sha</div>
+        <div class="brand-name"><a href="https://www.ka-sha.com/" target="_blank" rel="noopener noreferrer">Ka-Sha</a></div>
         <div class="brand-founder">Karishma Shahani Khan · Est. 2012</div>
         <div class="brand-desc">
-          Appliqué embroidery, quilting, tie-dye, hand painting — not as decorative touches, but as the central design idea. Karishma Shahani Khan uses Indian handicraft as a formal language, with the rigour a Western designer might bring to construction or cut. Each piece has a one-of-a-kind quality that is structurally impossible for mass production to replicate. For the customer who wants something that could not exist in a factory: Ka-Sha is the answer.
+          Appliqué embroidery, quilting, tie-dye, hand painting — the central design idea, not decoration. Indian handicraft as a formal language, applied with the rigour a Western designer brings to cut. One-of-a-kind quality that cannot be replicated at scale.
         </div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹7,500 – ₹28,000</div>
@@ -816,10 +824,10 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #6B4F3A, #A07855);">Injiri</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name">Injiri</div>
+        <div class="brand-name"><a href="https://www.injiri.co.in/" target="_blank" rel="noopener noreferrer">Injiri</a></div>
         <div class="brand-founder">Chinar Farooqui · Est. 2009</div>
         <div class="brand-desc">
-          The name means "Indian textile" — specifically the real Madras check exported from South India to West Africa. The entire brand philosophy is in that etymology: cloth crossing cultures, carrying history without announcing it. Chinar Farooqui designs garments that hold their cultural history lightly. Indigo, natural dye traditions, flowing silhouettes built for actual Indian heat. Indian design that sounds like India without needing to say so.
+          The name means "Indian textile" — specifically the Madras check exported from South India to West Africa. Cloth crossing cultures, carrying history without announcing it. Indigo, natural dye traditions, flowing silhouettes built for actual Indian heat. Sounds like India without needing to say so.
         </div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹8,000 – ₹28,000</div>
@@ -833,14 +841,30 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #2D4A22, #4A7A36);">IKAI</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-u">Unisex</span></div>
-        <div class="brand-name">IKAI by Ragini Ahuja</div>
+        <div class="brand-name"><a href="https://ikaibyraginiahuja.com/" target="_blank" rel="noopener noreferrer">IKAI by Ragini Ahuja</a></div>
         <div class="brand-founder">Ragini Ahuja · Est. 2013</div>
         <div class="brand-desc">
-          Boxy. Androgynous. Architecturally rigorous. Vogue India Fashion Fund finalist. IKAI sits at the forward edge of And-a-Man's edit — the brand that pushes the question of what Indian design can look like when freed entirely from traditional garment conventions. Natural fibres, unusual material combinations, silhouettes that challenge the very category of menswear and womenswear. The brand for the customer who wants Indian fashion with genuine conceptual ambition.
+          Boxy. Androgynous. Architecturally rigorous. Vogue India Fashion Fund finalist. IKAI pushes what Indian design looks like when freed from traditional garment conventions — natural fibres, unusual material combinations, silhouettes that challenge the category itself.
         </div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹10,000 – ₹42,000</div>
           <div class="brand-fit">The conceptual edge of the edit. Attracts the fashion-forward buyer.</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="brand-card">
+      <div class="brand-img-wrap"><img class="brand-img" src="https://nirmohafashionhouse.com/cdn/shop/files/NIRMOOHA9567.jpg?v=1759578677&width=1000" alt="Nirmooha" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
+      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #5C3040, #8C5070);">Nirmooha</div>
+      <div class="brand-body">
+        <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
+        <div class="brand-name"><a href="https://nirmohafashionhouse.com/" target="_blank" rel="noopener noreferrer">Nirmooha</a></div>
+        <div class="brand-founder">Prreeti Jaiin Nainutia · Est. 2013</div>
+        <div class="brand-desc">Luxe Indian at the upper price edge — embroidery and embellishment in contemporary silhouette frameworks. Occasion-adjacent but not occasion-only. Performs exceptionally during festive season. Commercially important for Q3–Q4 revenue.</div>
+        <div class="brand-footer">
+          <div class="brand-price"><span>Price Range</span>₹14,000 – ₹65,000</div>
+          <div class="brand-fit">Upper price anchor. Essential for festive season performance.</div>
         </div>
       </div>
     </div>
@@ -861,10 +885,10 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #3A2A1A, #7A5A3A);">Nambi-Kai</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name">Nambi-Kai</div>
+        <div class="brand-name"><a href="https://nambi-kai.com/" target="_blank" rel="noopener noreferrer">Nambi-Kai</a></div>
         <div class="brand-founder">Delshia Antony Raj · Chennai · Est. 2021</div>
         <div class="brand-desc">
-          In Tamil, Nambi-Kai means "trust in handmade." The practice lives up to the name: natural dyes from Kassim, Lac, and Madder applied by freehand artisan painting — no templates given to craftspeople, ever. Founded in 2021 in Chennai and already stocked at Ogaan, at Salt.Mango.Tree in Australia, and at The Thin Line internationally. Nambi-Kai is one of the most important emerging South Indian craft voices — specific, technically rigorous, and entirely its own. The geographic and cultural depth it adds to an edit that might otherwise skew North Indian is essential.
+          In Tamil: "trust in handmade." Natural dyes from Kassim, Lac, and Madder — freehand artisan painting, no templates, ever. Founded 2021 in Chennai. Already at Ogaan, Salt.Mango.Tree (Australia), The Thin Line internationally. The most important emerging South Indian craft voice in the edit.
         </div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹6,000 – ₹22,000</div>
@@ -878,10 +902,10 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #1A1A1A, #3A3A3A);">11.11</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name">11.11 / eleven eleven</div>
+        <div class="brand-name"><a href="https://11-11.in/" target="_blank" rel="noopener noreferrer">11.11 / eleven eleven</a></div>
         <div class="brand-founder">Shani Himanshu &amp; Mia Morikawa · Est. 2010</div>
         <div class="brand-desc">
-          Slow fashion taken to its logical extreme. Nothing is forced, nothing is wasted. Work with natural indigo, kora, and hand-spun cotton with a rigour that is genuinely intellectual — this is material practice as philosophy. Shani Himanshu and Mia Morikawa are the most considered brand in the edit: the one most likely to appeal to the customer who has already moved through the cycle and arrived at something more honest. The brand for the buyer who knows the difference between chemistry and botany.
+          Slow fashion at its logical extreme. Natural indigo, kora, hand-spun cotton — material practice as philosophy. The most considered brand in the edit. For the buyer who knows the difference between chemistry and botany.
         </div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹9,000 – ₹38,000</div>
@@ -895,10 +919,10 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #8B3A52, #C4657A);">Chidiyaa</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name">Chidiyaa</div>
+        <div class="brand-name"><a href="https://chidiyaa.com/" target="_blank" rel="noopener noreferrer">Chidiyaa</a></div>
         <div class="brand-founder">Rachana Reddy · Est. 2013</div>
         <div class="brand-desc">
-          Block prints celebrated across contemporary Indian fashion: whimsical, joyful, and rooted in the Jaipur hand block printing tradition with complete formal integrity. Natural dyes, breathable silhouettes, and a colour sensibility that is genuinely distinctive. Chidiyaa is the brand that brings joy to the floor — the one that makes customers smile when they see it, then buy it because the fabric and the cut actually work. Accessible price and strong walk-in performance.
+          Block prints rooted in the Jaipur hand block printing tradition — whimsical, joyful, formally sound. Natural dyes, breathable silhouettes, distinctive colour. Brings joy to the floor: customers smile when they see it, then buy it because the fabric and cut actually work.
         </div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹5,000 – ₹18,000</div>
@@ -912,10 +936,10 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #3A5C3A, #5A8C5A);">Saundh</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name">Saundh</div>
+        <div class="brand-name"><a href="https://saundh.com/" target="_blank" rel="noopener noreferrer">Saundh</a></div>
         <div class="brand-founder">Ayush Kasliwal · Est. 2014</div>
         <div class="brand-desc">
-          Named after the smell of earth after first rain. Only a specifically Indian sensory reference could generate that brand name, and the garments deliver on the promise: natural plant-based dyes, sustainable fibres, restraint as aesthetic practice. The palette is always earthy, the silhouettes are simple, and the touch of the fabric is the entire point. For the customer who wants to dress in something that feels as good as it looks.
+          Named after the smell of earth after first rain. Natural plant-based dyes, sustainable fibres, restraint as aesthetic practice. Earthy palette, simple silhouettes, fabric touch as the central experience. For the customer who wants clothes that feel as good as they look.
         </div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹6,500 – ₹24,000</div>
@@ -939,9 +963,9 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #7B3F6E, #B56AA8);">Ekaya</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name">Ekaya</div>
+        <div class="brand-name"><a href="https://ekaya.in/" target="_blank" rel="noopener noreferrer">Ekaya</a></div>
         <div class="brand-founder">Palak Shah · Est. 2013</div>
-        <div class="brand-desc">Four generations of Banarasi weaving expertise, 10,000+ artisans, and the restraint to let the weave speak. Ekaya has made Banarasi silk relevant to a generation that wasn't sure whether to love it or leave it behind. The key: it doesn't over-embellish. Contemporary colour systems, clean silhouettes, and an honesty about the material that feels completely current.</div>
+        <div class="brand-desc">Four generations of Banarasi weaving expertise, 10,000+ artisans. Made Banarasi silk relevant to a generation uncertain whether to love it or leave it. Contemporary colour systems, clean silhouettes, the restraint to let the weave speak.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹12,000 – ₹45,000</div>
           <div class="brand-fit">Banarasi for the modern wardrobe. Heritage with design confidence.</div>
@@ -954,9 +978,9 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #3D5A4F, #6B9E8F);">Dressfolk</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name">Dressfolk</div>
+        <div class="brand-name"><a href="https://dressfolk.com/" target="_blank" rel="noopener noreferrer">Dressfolk</a></div>
         <div class="brand-founder">Lavanya Nalli · Est. 2015</div>
-        <div class="brand-desc">800+ weavers across six states. Not as a CSR story — as a design philosophy. The weaver is the co-designer, and the fabric choices that emerge from that collaboration are unusual, specific, and formally strong. Contemporary silhouettes, well-considered cuts, and a brand that has earned the right to say "handloom meets modernism" because the garments actually demonstrate it.</div>
+        <div class="brand-desc">800+ weavers across six states — not as a CSR story, as a design philosophy. The weaver is the co-designer. Unusual, specific fabrics in contemporary silhouettes that actually demonstrate what "handloom meets modernism" means.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹5,500 – ₹22,000</div>
           <div class="brand-fit">Weaver-partnership model. Strong cross-gender commercial performer.</div>
@@ -969,7 +993,7 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #6B4A1A, #A07830);">House of Angadi</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name">House of Angadi</div>
+        <div class="brand-name"><a href="https://angadi.co/" target="_blank" rel="noopener noreferrer">House of Angadi</a></div>
         <div class="brand-founder">Bengaluru · Est. 1928 (revived)</div>
         <div class="brand-desc">One of India's oldest saree houses transformed into a contemporary design institution. Kanjeevaram at the highest level of technical quality, in contemporary silhouettes, with new colour systems that speak to a 35-year-old as clearly as to their grandmother. The South India textile anchor in our edit — and a complement to Nambi-Kai that gives the floor genuine geographic breadth.</div>
         <div class="brand-footer">
@@ -982,34 +1006,9 @@
 </div>
 
 
-<!-- ── CATEGORY V: THE MEN'S EDIT ── -->
+<!-- ── CATEGORY V: THE EVERYDAY REGISTER ── -->
 <div class="cat-section">
-  <div class="cat-label">Category V — The Men's Edit · Contemporary Indian Menswear</div>
-  <div class="cat-desc">The men's floor at And-a-Man should feel like the best international menswear floors — considered, quietly confident, built for the person who is paying attention. These brands make that case.</div>
-
-  <div class="brand-grid">
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://www.cordstudio.in/cdn/shop/files/DSCF1480_900x.jpg?v=1754907272" alt="Cord" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #1A3A2A, #2A6A4A);">Cord</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name">Cord</div>
-        <div class="brand-founder">Tanuj Balwani · Est. 2016</div>
-        <div class="brand-desc">Menswear that could live in a wardrobe alongside Cos or A.P.C. — made entirely in India, using Indian fabrics, with a point of view that is entirely Indian. The Indian man who travels internationally wants something that doesn't announce itself as "ethnic" but feels completely authentic. Cord threads that needle with quiet precision. The entry-level men's brand that earns its place through intelligence, not novelty.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹5,500 – ₹22,000</div>
-          <div class="brand-fit">Globally fluent Indian menswear. Accessible, clean, commercially proven.</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- ── CATEGORY VI: THE EVERYDAY REGISTER ── -->
-<div class="cat-section">
-  <div class="cat-label">Category VI — The Everyday Register · Indian Design for the Life You Actually Live</div>
+  <div class="cat-label">Category V — The Everyday Register · Indian Design for the Life You Actually Live</div>
   <div class="cat-desc">Brands that make the new Indian design voice wearable across the full week — not just the notable occasion. Commercially essential, creatively honest, and the brands that build the loyal repeat customer.</div>
 
   <div class="brand-grid">
@@ -1018,9 +1017,9 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #6B5040, #A07860);">Mati</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name">Mati</div>
+        <div class="brand-name"><a href="https://www.stylemati.in/" target="_blank" rel="noopener noreferrer">Mati</a></div>
         <div class="brand-founder">Fatima K. Punjaabi · Est. 2017</div>
-        <div class="brand-desc">Handwoven pure cotton, zero compromise. Fatima K. Punjaabi builds Mati around one idea: that ethical luxury is not a category to enter but a standard to operate at every day. The result is a brand of exceptional material clarity — precise weaves, a restrained palette, and objects that reward the hand as much as the eye. Garments and accessories made to be used for years, then kept. The brand that earns its place on the floor through integrity as much as aesthetics.</div>
+        <div class="brand-desc">Handwoven pure cotton, zero compromise. Mati operates at one standard: ethical luxury as a daily practice, not a category. Precise weaves, restrained palette, objects that reward the hand. Made to be used for years, then kept.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹4,500 – ₹20,000</div>
           <div class="brand-fit">Material integrity and quiet confidence. Builds the considered everyday customer.</div>
@@ -1033,9 +1032,9 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #5C3040, #9C5070);">Lovebirds</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name">Lovebirds</div>
+        <div class="brand-name"><a href="https://lovebirds-studio.com/" target="_blank" rel="noopener noreferrer">Lovebirds</a></div>
         <div class="brand-founder">Siddhartha Tytler &amp; Shingai Mutasa · Est. 2009</div>
-        <div class="brand-desc">Fifteen years of consistent excellence. Playful but structured, Indian in sensibility without being overtly ethnic. Fabric choices always excellent, colour work among the best in Indian fashion. Lovebirds is the brand that doesn't shout but always earns a second look — and a first purchase, then a second. Over fifteen years, that consistency is its own form of design intelligence.</div>
+        <div class="brand-desc">Fifteen years of consistent excellence. Playful but structured, Indian in sensibility without being overtly ethnic. Fabric choices excellent, colour work among the best. Doesn't shout — earns a second look, and always a first purchase, then a second.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹8,000 – ₹30,000</div>
           <div class="brand-fit">15 years of consistency. The strongest repeat-buy brand in the edit.</div>
@@ -1048,9 +1047,9 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #4A3A5C, #7A6A9C);">Label RaMa</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name">Label RaMa</div>
+        <div class="brand-name"><a href="https://labelrama.com/" target="_blank" rel="noopener noreferrer">Label RaMa</a></div>
         <div class="brand-founder">Rashi Menda · Est. 2017</div>
-        <div class="brand-desc">Jamdani, muslin, and khadi in minimalist silhouettes that could sit in a Scandinavian design store — and yet are unmistakably Indian. The tension between those two things is the entire design point. Works with rural craft clusters across India and translates their output with genuine design intelligence. Everyday luxury: clothing that feels expensive because it's made with real skill, not because it carries a famous name.</div>
+        <div class="brand-desc">Jamdani, muslin, and khadi in minimalist silhouettes that could sit in a Scandinavian design store — and yet unmistakably Indian. That tension is the entire design point. Rural craft clusters, genuine design intelligence. Clothing that feels expensive because it's made with real skill.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹6,000 – ₹22,000</div>
           <div class="brand-fit">Quiet luxury. Strong artisan story. Perfect mid-floor brand.</div>
@@ -1063,55 +1062,30 @@
       <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #1A1A2A, #3A3A5A);">Huemn</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-u">Unisex</span></div>
-        <div class="brand-name">Huemn</div>
+        <div class="brand-name"><a href="https://huemn.in/" target="_blank" rel="noopener noreferrer">Huemn</a></div>
         <div class="brand-founder">Shyma Shetty &amp; Pranav Misra · Est. 2013</div>
-        <div class="brand-desc">At the intersection of streetwear and craft fashion — graphic, bold, and deliberately in conversation with Indian political and cultural history. Where most brands in the edit speak softly, Huemn speaks loudly, with intelligence. The garment construction is genuinely good and the cultural references are specific. Huemn brings a different energy to the floor: the brand for the customer who wants Indian design with an edge.</div>
+        <div class="brand-desc">At the intersection of streetwear and craft fashion — graphic, bold, in deliberate conversation with Indian political history. Where the rest of the edit speaks softly, Huemn speaks loudly — with intelligence. Construction genuinely good. References specific.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹5,000 – ₹22,000</div>
           <div class="brand-fit">Cultural edge and street energy. Brings a younger buyer to the floor.</div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-
-<!-- ── CATEGORY VII: THE EMERGING VOICES ── -->
-<div class="cat-section">
-  <div class="cat-label">Category VII — The Emerging Voices · The Brands We Had First</div>
-  <div class="cat-desc">Discovery is part of the editorial function. These are the brands And-a-Man can build — the ones that are not yet widely known, but whose design intelligence is already clear. Carrying them creates a "we had them first" cultural credibility that no established brand can provide.</div>
-
-  <div class="brand-grid">
     <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://zhaviahstudio.com/cdn/shop/files/Website_hero_banner_image_male_model_with_shoulde-1770969012903.png?v=1770969045&width=1200" alt="Zhaviah Studio" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #4A5C3A, #7A9C6A);">Zhaviah</div>
+      <div class="brand-img-wrap"><img class="brand-img" src="https://www.cordstudio.in/cdn/shop/files/DSCF1480_900x.jpg?v=1754907272" alt="Cord" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
+      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #1A3A2A, #2A6A4A);">Cord</div>
       <div class="brand-body">
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name">Zhaviah Studio</div>
-        <div class="brand-founder">Est. 2023</div>
-        <div class="brand-desc">Founded 2023. Minimalist, breathable, natural fibres. 60+ rural artisans. Clean enough to be mistaken for a Copenhagen studio brand — until you look closely and the Indian material intelligence becomes undeniable. Zhaviah is exactly the kind of emerging label that And-a-Man discovers and amplifies. The "we had them first" moment, available right now.</div>
+        <div class="brand-name"><a href="https://cordstudio.in/" target="_blank" rel="noopener noreferrer">Cord</a></div>
+        <div class="brand-founder">Neha Singh &amp; Pranav Guglani · Est. 2015</div>
+        <div class="brand-desc">Clothing that could live in a wardrobe alongside Cos or A.P.C. — made entirely in India, using Indian fabrics, with a point of view that is entirely its own. For the customer who travels internationally and wants something that doesn't announce itself as "ethnic" but feels completely authentic. Cord serves both men and women with the same quiet precision: contemporary Indian design that earns its place through intelligence, not novelty.</div>
         <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹5,000 – ₹18,000</div>
-          <div class="brand-fit">Discovery brand. Builds taste-making credibility. Stock early.</div>
+          <div class="brand-price"><span>Price Range</span>₹5,500 – ₹22,000</div>
+          <div class="brand-fit">Globally fluent Indian design. Accessible, clean, commercially proven.</div>
         </div>
       </div>
     </div>
-
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://nirmohafashionhouse.com/cdn/shop/files/NIRMOOHA9567.jpg?v=1759578677&width=1000" alt="Nirmooha" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #5C3040, #8C5070);">Nirmooha</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name">Nirmooha</div>
-        <div class="brand-founder">Prreeti Jaiin Nainutia · Est. 2013</div>
-        <div class="brand-desc">Luxe Indian at the upper edge of our price range — embroidery and embellishment in contemporary silhouette frameworks. The brand sits slightly closer to the occasion-adjacent register than most of our edit, but without crossing into occasion-only. Performs exceptionally during the festive season and serves the customer who wants something elevated without going to Aza. Commercially important for our Q3–Q4 revenue architecture.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹14,000 – ₹65,000</div>
-          <div class="brand-fit">Upper price anchor. Essential for festive season performance.</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
 
@@ -1119,11 +1093,11 @@
 <!-- ══ PROOF STRIP ═══════════════════════════════════════════════════ -->
 <div class="proof-strip">
   <div class="proof-item">
-    <div class="proof-num">29</div>
+    <div class="proof-num">25</div>
     <div class="proof-label">Designers in the universe</div>
   </div>
   <div class="proof-item">
-    <div class="proof-num">7</div>
+    <div class="proof-num">5</div>
     <div class="proof-label">Creative categories</div>
   </div>
   <div class="proof-item">
@@ -1140,17 +1114,15 @@
 <!-- ══ CLOSING ════════════════════════════════════════════════════════ -->
 <div class="closing">
   <div class="closing-eyebrow">And-a-Man · The Edit</div>
-  <div class="closing-line1">The India the world is beginning to understand.</div>
   <div class="closing-main">
-    "Indian design at its most alive:<br>
-    <span>contemporary, confident,<br>
-    and irreducibly itself."</span>
+    "Indian design doesn't need<br>
+    validation anymore.<br>
+    It needs a platform that<br>
+    <span>understands it."</span>
   </div>
   <div class="closing-rule"></div>
   <div class="closing-secondary">
-    Fashion stores usually sell products.<br>
-    The great ones sell perspective.<br><br>
-    This is ours.
+    That's what we are building.
   </div>
   <div class="closing-wordmark">And-a-Man</div>
 </div>
