@@ -303,8 +303,108 @@
   .closing-line1 { font-family: 'Playfair Display', serif; font-size: clamp(14px, 2vw, 22px); font-weight: 400; color: var(--mid-grey); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 24px; }
   .closing-main { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 64px); font-weight: 400; font-style: italic; color: var(--cream); line-height: 1.2; max-width: 800px; margin: 0 auto 48px; }
   .closing-main span { color: var(--terracotta); }
+  .closing-rule { width: 1px; height: 60px; background: #2a2a2a; margin: 0 auto 40px; }
   .closing-secondary { font-size: 15px; font-weight: 300; color: var(--mid-grey); letter-spacing: 0.03em; line-height: 1.9; max-width: 520px; margin: 0 auto 64px; }
   .closing-wordmark { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--cream); letter-spacing: 0.12em; }
+
+  /* ══ RESPONSIVE — MOBILE ════════════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* ── Cover ── */
+    .cover { padding: 36px 24px 40px; min-height: 100svh; }
+    .cover-eyebrow { font-size: 9px; letter-spacing: 0.22em; }
+    .cover-title { font-size: clamp(48px, 13vw, 72px); }
+    .cover-sub { font-size: 13px; max-width: 100%; }
+    .cover-footer { flex-direction: column; gap: 12px; }
+    .cover-meta { text-align: left; font-size: 10px; }
+    .cover-wordmark { font-size: 22px; }
+
+    /* ── Manifesto ── */
+    .manifesto { padding: 52px 24px; }
+    .manifesto-quote { font-size: clamp(20px, 5.5vw, 30px); margin-bottom: 36px; }
+    .manifesto-statements { grid-template-columns: 1fr; gap: 28px; }
+    .mst-text { font-size: 16px; }
+
+    /* ── Sections ── */
+    .section { padding: 52px 24px; }
+    .section-label { font-size: 9px; }
+    .section-title { font-size: clamp(26px, 7vw, 40px); }
+    .prose { font-size: 14.5px; }
+
+    /* ── Statement block ── */
+    .statement-block { padding: 52px 24px; }
+    .statement-primary { font-size: clamp(20px, 5.5vw, 30px); }
+
+    /* ── Three Lenses ── */
+    .lenses-bg { padding: 52px 24px; }
+    .lenses-intro { margin-bottom: 40px; }
+    .lenses-grid { grid-template-columns: 1fr; border: none; }
+    .lens { padding: 32px 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .lens:last-child { border-bottom: none; }
+    .lens-num { font-size: 48px; }
+    .lens-title { font-size: 18px; }
+    .lens-body { font-size: 14px; }
+    .lens-test { font-size: 13px; }
+
+    /* ── Boundaries ── */
+    .boundary-grid { grid-template-columns: 1fr; gap: 40px; }
+    .b-title { font-size: 12px; }
+    .b-text { font-size: 14px; }
+
+    /* ── Commercial bar ── */
+    .commercial-bar { padding: 48px 24px; }
+
+    /* ── Filter ── */
+    .filter-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
+    .filter-card { padding: 28px 20px; }
+    .filter-num { font-size: 32px; }
+    .filter-q { font-size: 14px; }
+    .filter-a { font-size: 13px; }
+    .filter-card-wide { padding: 36px 24px 32px; }
+    .filter-wide-title { font-size: clamp(18px, 5vw, 28px); }
+    .filter-wide-desc { font-size: 13px; }
+    .filter-wide-split { grid-template-columns: 1fr; gap: 24px; }
+    .filter-split-item { padding-left: 16px; padding-right: 0; border-left: 2px solid var(--terracotta); }
+    .fsi-pct { font-size: 32px; }
+
+    /* ── Brand universe header ── */
+    .brands-header { padding: 52px 24px; }
+
+    /* ── Category sections ── */
+    .cat-section { padding: 40px 24px; }
+    .cat-label { font-size: 9px; }
+    .cat-desc { font-size: 13.5px; margin-bottom: 32px; }
+    .brand-grid { grid-template-columns: 1fr; gap: 24px; }
+    .brand-card { border-radius: 2px; }
+    .brand-body { padding: 20px; }
+    .brand-name { font-size: 18px; }
+    .brand-founder { font-size: 11px; }
+    .brand-desc { font-size: 13.5px; }
+    .brand-footer { flex-direction: column; gap: 8px; align-items: flex-start; }
+    .brand-fit { text-align: left; max-width: 100%; font-size: 11px; }
+    .brand-price { font-size: 13px; }
+
+    /* ── Proof strip ── */
+    .proof-strip { flex-wrap: wrap; padding: 40px 24px; gap: 0; }
+    .proof-item { width: 50%; padding: 20px 16px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .proof-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
+    .proof-item:nth-last-child(-n+2) { border-bottom: none; }
+    .proof-num { font-size: 32px; }
+    .proof-label { font-size: 9px; }
+
+    /* ── Closing ── */
+    .closing { padding: 64px 24px; }
+    .closing-main { font-size: clamp(26px, 7.5vw, 48px); }
+    .closing-secondary { font-size: 14px; margin-bottom: 40px; }
+    .closing-wordmark { font-size: 24px; }
+  }
+
+  @media (max-width: 480px) {
+    .cover-title { font-size: clamp(42px, 12vw, 60px); }
+    .filter-grid { grid-template-columns: 1fr; }
+    .proof-item { width: 50%; }
+    .brand-tags { flex-wrap: wrap; gap: 4px; }
+  }
 
   @media print {
     /* ── Force full colour reproduction ── */
@@ -364,7 +464,7 @@
     <div class="cover-title">Indian<br><em>Design.</em></div>
     <div class="cover-rule"></div>
     <div class="cover-sub">
-      A clear, defensible point of view on what And-a-Man stands for, what it curates, and the 25 designers who prove the thesis is real.
+      A clear point of view on what And-a-Man stands for, what it curates, and the 25 designers who prove the thesis is real.
     </div>
   </div>
 
@@ -394,7 +494,7 @@
       </div>
       <div class="mst">
         <div class="mst-num">II</div>
-        <div class="mst-text"><strong>We are that home.</strong> A permanent, living platform for the designers who are showing the world that Indian design leads — not explaining, not imitating — leading.</div>
+        <div class="mst-text"><strong>We are that home.</strong> A permanent, living platform for designers showing the world that Indian design leads — not explaining, not imitating — leading.</div>
       </div>
       <div class="mst">
         <div class="mst-num">III</div>
@@ -411,10 +511,7 @@
   <div class="section-title">Not Indian fashion.<br><em>Contemporary Indian design.</em></div>
   <div class="prose">
     <p>
-      Not Indian fashion. Contemporary Indian design. The distinction is intent.
-    </p>
-    <p>
-      For decades, Indian designers operated in one of two modes: heritage — celebrating the artisan, looking backward — or aspiration, looking toward Paris for what "modern" was supposed to mean. Both were deferential. Both assumed the reference point was elsewhere.
+      The distinction is intent. For decades, Indian designers operated in one of two modes: heritage — celebrating the artisan, looking backward — or aspiration, looking toward Paris for what "modern" was supposed to mean. Both were deferential. Both assumed the reference point was elsewhere.
     </p>
     <p>
       That moment is over. Kartik Research on Orchard Street. Péro in 300+ stores globally. Dhruv Kapoor at 40+ global stockists. Suket Dhir, International Woolmark Prize winner. The evidence is now undeniable.
@@ -469,9 +566,8 @@
       <div class="lens-subtitle">The Silhouette Standard</div>
       <div class="lens-body">
         Every piece must feel current. Wearable in a wardrobe that includes Lemaire, Auralee, Loewe.<br>
-        Not occasion-wear. Not costume. <em>Clothes for real life</em> — Mumbai on a Tuesday, London at a gallery, New York at dinner.<br><br>
-        This is not about looking Western. It's about looking now.<br><br>
-        The best Indian designers aren't imitating. They're building silhouettes that belong to the present — using materials and knowledge that are uniquely theirs. That combination is still rare. That's the opportunity.
+        <em>Not wedding-wear. Not costume.</em> Clothes for real life — Mumbai on a Tuesday, London at a gallery, New York at dinner.<br><br>
+        This is not about looking Western. It's about looking now.
       </div>
       <div class="lens-test">
         <strong>The test</strong>
@@ -485,11 +581,8 @@
       <div class="lens-title">Sounds like India</div>
       <div class="lens-subtitle">The Voice Test</div>
       <div class="lens-body">
-        The designer's point of view is irreducibly Indian. Not through motifs or materials — but through how they see proportion, colour, and the body.<br><br>
-        <em>No apology. No nostalgia. No imitation.</em> Just a clear signal: this came from here — and here matters.<br><br>
-        This is the hardest lens to define, and the easiest to feel.<br><br>
-        Remove the label. Is India still in the room?<br>
-        Not as decoration — as a way of thinking.
+        The designer's point of view is irreducibly Indian — expressed through proportion, colour, and the body, not surface cues.<br><br>
+        <em>No apology. No nostalgia. No imitation.</em>
       </div>
       <div class="lens-test">
         <strong>The test</strong>
@@ -649,7 +742,7 @@
         </div>
         <div class="brand-name"><a href="https://www.kartikresearch.com/" target="_blank" rel="noopener noreferrer">Kartik Research</a></div>
         <div class="brand-founder">Kartik Kumra · Delhi / New York</div>
-        <div class="brand-desc">Paris Men's runway. New Delhi flagship. New York on Orchard Street, April 2025. The clearest proof that Indian design is not a regional conversation — it is a global one. Conceptual, minimal, deeply considered: garments that look like they've been researched rather than designed.</div>
+        <div class="brand-desc">Shown internationally. New York presence on Orchard Street. A clear signal that Indian design is operating globally. Conceptual, minimal, research-led garments.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹15,000 – ₹65,000+</div>
           <div class="brand-fit">Global-facing, conceptually strong. Essential.</div>
@@ -664,8 +757,7 @@
         <div class="brand-name"><a href="https://pero.co.in/" target="_blank" rel="noopener noreferrer">péro</a></div>
         <div class="brand-founder">Aneeth Arora · Est. 2009</div>
         <div class="brand-desc">
-          350 stores. 35 countries. Vogue India Fashion Fund winner. The single clearest data point: Indian craft-forward design has genuine global distribution. Aneeth Arora's work is joyful, handmade, wildly original — craft intelligence in silhouettes worn anywhere in the world without explanation.
-        </div>
+300+ global stockists. Vogue India Fashion Fund winner. Craft-forward design with genuine international distribution. Joyful, handmade, recognisable.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹8,000 – ₹35,000</div>
           <div class="brand-fit">Proven international demand. Must-carry.</div>
@@ -681,8 +773,7 @@
         <div class="brand-name"><a href="https://dhruvkapoor.com/" target="_blank" rel="noopener noreferrer">Dhruv Kapoor</a></div>
         <div class="brand-founder">Dhruv Kapoor · Mumbai</div>
         <div class="brand-desc">
-          40+ global stockists. International fashion weeks. A global design language that remains unambiguously Indian. Minimal clean cuts in Europe, richer colour elsewhere — understands global taste without losing his own. The BOAT collaboration and Kapoor 2.0 line (₹3.5K–₹13.5K) show commercial intelligence to match.
-        </div>
+40+ global stockists. International fashion weeks. A global design language with a clear Indian core. Strong commercial collaborations alongside runway work.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹25,000 – ₹1,50,000</div>
           <div class="brand-fit">Global distribution with commercial intelligence.</div>
@@ -698,8 +789,7 @@
         <div class="brand-name"><a href="https://www.suketdhir.com/" target="_blank" rel="noopener noreferrer">SUKETDHIR</a></div>
         <div class="brand-founder">Suket Dhir · Est. 2011</div>
         <div class="brand-desc">
-          International Woolmark Prize for Menswear, 2016 — the only Asian winner. Ikat, brocade, cashmere, khadi in silhouettes that are contemporary without being Western, Indian without being ethnic. His philosophy — the reference point matters less than the intelligence you bring to it — is the And-a-Man curation philosophy in designer form.
-        </div>
+International Woolmark Prize (Menswear, 2016). Ikat, khadi, and traditional textiles in contemporary silhouettes.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹8,500 – ₹38,000</div>
           <div class="brand-fit">Internationally recognised design voice.</div>
@@ -724,8 +814,7 @@
         <div class="brand-name"><a href="https://rawmango.com/" target="_blank" rel="noopener noreferrer">Raw Mango</a></div>
         <div class="brand-founder">Sanjay Garg · Est. 2008</div>
         <div class="brand-desc">
-          Raw Mango transformed Chanderi — a tradition on the edge of irrelevance — into one of the most coveted fabrics in Indian wardrobes. Sanjay Garg's genius: colour and restraint. Deep indigos, burnt ochres, a formal clarity the best minimalist labels would respect. London Fashion Week, 2026.
-        </div>
+Reframed Chanderi into a contemporary fabric language. Restrained palette, strong formal clarity, and textile-led design.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹6,500 – ₹45,000</div>
           <div class="brand-fit">Sets the craft-design benchmark.</div>
@@ -741,8 +830,7 @@
         <div class="brand-name"><a href="https://www.anavila.com/" target="_blank" rel="noopener noreferrer">Anavila</a></div>
         <div class="brand-founder">Anavila Misra · Est. 2012</div>
         <div class="brand-desc">
-          Anavila Misra invented a category: the linen sari. Before her, linen was for shirts. After her, the material of choice for women who wanted the grace of a drape without the weight of silk. Earth palette — sand, sage, rust, ivory. Deceptively simple. Material intelligence with complete formal confidence.
-        </div>
+Pioneered the linen sari. Material-first design with a quiet, confident aesthetic.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹9,000 – ₹32,000</div>
           <div class="brand-fit">Defined a category.</div>
@@ -758,8 +846,7 @@
         <div class="brand-name"><a href="https://bodicestudio.com/" target="_blank" rel="noopener noreferrer">Bodice</a></div>
         <div class="brand-founder">Ruchika Sachdeva · Est. 2011</div>
         <div class="brand-desc">
-          London College of Fashion, Vivienne Westwood, Vogue India Fashion Fund winner, International Woolmark finalist. A design language created specifically for the Indian woman who wants neither Western minimalism nor Indian tradition revival — but something genuinely new. The third lens, perfectly executed.
-        </div>
+Vogue India Fashion Fund winner. A distinct design language for the modern Indian woman — neither traditional nor Western.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹9,500 – ₹38,000</div>
           <div class="brand-fit">A clear contemporary women's voice.</div>
@@ -860,7 +947,7 @@
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
         <div class="brand-name"><a href="https://nirmohafashionhouse.com/" target="_blank" rel="noopener noreferrer">Nirmooha</a></div>
         <div class="brand-founder">Prreeti Jaiin Nainutia · Est. 2013</div>
-        <div class="brand-desc">Luxe Indian at the upper price edge — embroidery and embellishment in contemporary silhouette frameworks. Occasion-adjacent but not occasion-only. Performs exceptionally during festive season. Commercially important for Q3–Q4 revenue.</div>
+        <div class="brand-desc">Embroidery and embellishment in contemporary silhouette frameworks. Occasion-adjacent but wearable.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹14,000 – ₹65,000</div>
           <div class="brand-fit">Higher price, festive-relevant.</div>
@@ -887,8 +974,7 @@
         <div class="brand-name"><a href="https://nambi-kai.com/" target="_blank" rel="noopener noreferrer">Nambi-Kai</a></div>
         <div class="brand-founder">Delshia Antony Raj · Chennai · Est. 2021</div>
         <div class="brand-desc">
-          In Tamil: "trust in handmade." Natural dyes from Kassim, Lac, and Madder — freehand artisan painting, no templates, ever. Founded 2021 in Chennai. Already at Ogaan, Salt.Mango.Tree (Australia), The Thin Line internationally. The most important emerging South Indian craft voice in the edit.
-        </div>
+Natural dye, freehand-painted textiles with no templates. Early international placements and strong craft identity.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹6,000 – ₹22,000</div>
           <div class="brand-fit">Emerging craft voice.</div>
@@ -904,8 +990,7 @@
         <div class="brand-name"><a href="https://11-11.in/" target="_blank" rel="noopener noreferrer">11.11 / eleven eleven</a></div>
         <div class="brand-founder">Shani Himanshu &amp; Mia Morikawa · Est. 2010</div>
         <div class="brand-desc">
-          Slow fashion at its logical extreme. Natural indigo, kora, hand-spun cotton — material practice as philosophy. The most considered brand in the edit. For the buyer who knows the difference between chemistry and botany.
-        </div>
+Natural indigo, hand-spun fabrics, and slow production systems. Material practice as philosophy.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹9,000 – ₹38,000</div>
           <div class="brand-fit">Highly material-driven.</div>
@@ -938,8 +1023,7 @@
         <div class="brand-name"><a href="https://saundh.com/" target="_blank" rel="noopener noreferrer">Saundh</a></div>
         <div class="brand-founder">Sabby Saluja · Est. 2019</div>
         <div class="brand-desc">
-          Named after the smell of earth after first rain. Natural plant-based dyes, sustainable fibres, restraint as aesthetic practice. Earthy palette, simple silhouettes, fabric touch as the central experience. For the customer who wants clothes that feel as good as they look.
-        </div>
+Plant-based dyes, earthy palette, and minimal silhouettes. Fabric feel is central to the experience.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹6,500 – ₹24,000</div>
           <div class="brand-fit">Earth-toned, material-led.</div>
@@ -964,7 +1048,7 @@
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
         <div class="brand-name"><a href="https://ekaya.in/" target="_blank" rel="noopener noreferrer">Ekaya</a></div>
         <div class="brand-founder">Palak Shah · Est. 2013</div>
-        <div class="brand-desc">Four generations of Banarasi weaving expertise, 10,000+ artisans. Made Banarasi silk relevant to a generation uncertain whether to love it or leave it. Contemporary colour systems, clean silhouettes, the restraint to let the weave speak.</div>
+        <div class="brand-desc">Banarasi weaving reinterpreted through contemporary colour and form.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹12,000 – ₹45,000</div>
           <div class="brand-fit">Modernised Banarasi.</div>
@@ -979,7 +1063,7 @@
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
         <div class="brand-name"><a href="https://dressfolk.com/" target="_blank" rel="noopener noreferrer">Dressfolk</a></div>
         <div class="brand-founder">Lavanya Nalli · Est. 2015</div>
-        <div class="brand-desc">800+ weavers across six states — not as a CSR story, as a design philosophy. The weaver is the co-designer. Unusual, specific fabrics in contemporary silhouettes that actually demonstrate what "handloom meets modernism" means.</div>
+        <div class="brand-desc">Weaver-first model across multiple regions. Handloom positioned within modern silhouettes.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹5,500 – ₹22,000</div>
           <div class="brand-fit">Strong handloom positioning.</div>
@@ -994,7 +1078,7 @@
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
         <div class="brand-name"><a href="https://angadi.co/" target="_blank" rel="noopener noreferrer">House of Angadi</a></div>
         <div class="brand-founder">Bengaluru · Est. 1928 (revived)</div>
-        <div class="brand-desc">One of India's oldest saree houses transformed into a contemporary design institution. Kanjeevaram at the highest level of technical quality, in contemporary silhouettes, with new colour systems that speak to a 35-year-old as clearly as to their grandmother. The South India textile anchor in our edit — and a complement to Nambi-Kai that gives the floor genuine geographic breadth.</div>
+        <div class="brand-desc">Legacy saree house with a contemporary design lens. Kanjeevaram executed with precision and updated colour systems. The South India textile anchor in our edit — and a complement to Nambi-Kai that gives the floor genuine geographic breadth.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹15,000 – ₹80,000</div>
           <div class="brand-fit">South Indian heritage anchor.</div>
@@ -1018,7 +1102,7 @@
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
         <div class="brand-name"><a href="https://www.stylemati.in/" target="_blank" rel="noopener noreferrer">Mati</a></div>
         <div class="brand-founder">Fatima K. Punjaabi · Est. 2017</div>
-        <div class="brand-desc">Handwoven pure cotton, zero compromise. Mati operates at one standard: ethical luxury as a daily practice, not a category. Precise weaves, restrained palette, objects that reward the hand. Made to be used for years, then kept.</div>
+        <div class="brand-desc">Handwoven cotton and a restrained design language. Built for everyday use.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹4,500 – ₹20,000</div>
           <div class="brand-fit">Everyday material-led brand.</div>
@@ -1063,7 +1147,7 @@
         <div class="brand-tags"><span class="brand-tag tag-u">Unisex</span></div>
         <div class="brand-name"><a href="https://huemn.in/" target="_blank" rel="noopener noreferrer">Huemn</a></div>
         <div class="brand-founder">Shyma Shetty &amp; Pranav Misra · Est. 2013</div>
-        <div class="brand-desc">At the intersection of streetwear and craft fashion — graphic, bold, in deliberate conversation with Indian political history. Where the rest of the edit speaks softly, Huemn speaks loudly — with intelligence. Construction genuinely good. References specific.</div>
+        <div class="brand-desc">Graphic, bold, and politically aware. Sits at the intersection of streetwear and craft.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹5,000 – ₹22,000</div>
           <div class="brand-fit">Street + cultural commentary.</div>
@@ -1078,7 +1162,7 @@
         <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
         <div class="brand-name"><a href="https://cordstudio.in/" target="_blank" rel="noopener noreferrer">Cord</a></div>
         <div class="brand-founder">Neha Singh &amp; Pranav Guglani · Est. 2015</div>
-        <div class="brand-desc">Clothing that could live in a wardrobe alongside Cos or A.P.C. — made entirely in India, using Indian fabrics, with a point of view that is entirely its own. For the customer who travels internationally and wants something that doesn't announce itself as "ethnic" but feels completely authentic. Cord serves both men and women with the same quiet precision: contemporary Indian design that earns its place through intelligence, not novelty.</div>
+        <div class="brand-desc">Clean silhouettes with a globally fluent sensibility. Versatile, wearable, and commercially reliable.</div>
         <div class="brand-footer">
           <div class="brand-price"><span>Price Range</span>₹5,500 – ₹22,000</div>
           <div class="brand-fit">Accessible, modern, versatile.</div>
