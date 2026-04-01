@@ -4,465 +4,586 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>And-a-Man — Curation Philosophy</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --ink: #1a1a1a;
-    --cream: #f5f0e8;
-    --warm-white: #faf8f4;
-    --terracotta: #c4622d;
-    --gold: #b5960a;
-    --dusty-green: #4a6741;
-    --slate: #5c6b7a;
-    --light-grey: #e8e4dc;
-    --mid-grey: #9a9590;
-    --white: #ffffff;
-  }
-  html { font-size: 16px; }
-  body { font-family: 'Inter', sans-serif; background: var(--warm-white); color: var(--ink); line-height: 1.6; }
 
-  /* ── COVER ── */
-  .cover {
-    width: 100%; min-height: 100vh;
-    background: var(--ink);
-    display: flex; flex-direction: column;
-    justify-content: space-between;
-    padding: 64px 80px;
-    position: relative; overflow: hidden;
-  }
-  .cover::before {
-    content: '';
-    position: absolute; top: 0; right: 0;
-    width: 42%; height: 100%;
-    background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop') center/cover no-repeat;
-    opacity: 0.15;
-  }
-  .cover::after {
-    content: '';
-    position: absolute; bottom: 0; left: 0;
-    width: 100%; height: 1px;
-    background: var(--terracotta);
-  }
-  .cover-eyebrow {
-    font-size: 10px; font-weight: 600;
-    letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--mid-grey); position: relative; z-index: 2;
-  }
-  .cover-body { position: relative; z-index: 2; }
-  .cover-kicker {
-    font-family: 'EB Garamond', serif;
-    font-size: clamp(18px, 2.1vw, 24px);
-    font-style: italic; color: var(--terracotta);
-    letter-spacing: 0.06em; margin-bottom: 20px;
-  }
-  .cover-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(56px, 7.5vw, 100px);
-    font-weight: 400; line-height: 0.95;
-    color: var(--cream); margin-bottom: 36px;
-    letter-spacing: -0.01em;
-  }
-  .cover-title em { font-style: italic; color: var(--terracotta); }
-  .cover-rule { width: 48px; height: 1px; background: var(--terracotta); margin-bottom: 28px; }
-  .cover-sub {
-    font-size: 14px; font-weight: 300;
-    color: var(--mid-grey); letter-spacing: 0.04em;
-    max-width: 440px; line-height: 1.8;
-  }
-  .cover-footer {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    position: relative; z-index: 2;
-  }
-  .cover-wordmark {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px; color: var(--cream); letter-spacing: 0.1em;
-  }
-  .cover-meta { text-align: right; }
-  .cover-meta div { font-size: 10px; color: var(--mid-grey); letter-spacing: 0.15em; text-transform: uppercase; line-height: 1.9; }
+/* ── Variables ─────────────────────────────────────── */
+:root {
+  --bg:        #f7f4ef;
+  --ink:       #1a1917;
+  --mid:       #787571;
+  --accent:    #8b7355;
+  --light:     #e8e4dc;
+  --dark:      #131210;
+  --dark-mid:  #58544f;
+  --tinted:    #f0ede6;
+}
 
-  /* ── MANIFESTO ── */
-  .manifesto {
-    background: var(--ink); padding: 100px 80px;
-    position: relative; overflow: hidden;
-  }
-  .manifesto::before {
-    content: '\201C';
-    font-family: 'Playfair Display', serif;
-    font-size: 320px; line-height: 1;
-    color: #2a2a2a; position: absolute;
-    top: -40px; left: 48px; pointer-events: none;
-  }
-  .manifesto-inner { position: relative; z-index: 2; max-width: 900px; }
-  .manifesto-label {
-    font-size: 20px; font-weight: 600; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--terracotta);
-    margin-bottom: 40px; display: block;
-  }
-  .manifesto-quote {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(26px, 3.8vw, 48px);
-    font-weight: 400; font-style: italic;
-    line-height: 1.35; color: var(--cream);
-    margin-bottom: 48px;
-  }
-  .manifesto-quote span { color: var(--terracotta); }
-  .manifesto-statements { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; border-top: 1px solid #2a2a2a; padding-top: 48px; }
-  .mst { }
-  .mst-num { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--terracotta); letter-spacing: 0.2em; margin-bottom: 14px; }
-  .mst-text { font-size: 19.5px; font-weight: 300; color: #888; line-height: 1.75; }
-  .mst-text strong { color: var(--cream); font-weight: 500; }
+/* ── Reset ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+img { display: block; max-width: 100%; }
 
-  /* ── GENERAL SECTION ── */
-  .section { padding: 80px 80px; border-bottom: 1px solid var(--light-grey); }
-  .section-label {
-    font-size: 20px; font-weight: 600; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--terracotta); margin-bottom: 36px;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(30px, 4vw, 50px); font-weight: 400;
-    line-height: 1.12; color: var(--ink); margin-bottom: 32px;
-  }
-  .section-title em { font-style: italic; }
-  .prose { font-size: 15.5px; font-weight: 300; line-height: 1.9; color: #3a3a3a; max-width: 780px; }
-  .prose p { margin-bottom: 20px; }
-  .prose strong { font-weight: 600; color: var(--ink); }
+/* ── Shared eyebrow ────────────────────────────────── */
+.eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 28px;
+}
 
-  /* ── STATEMENT BLOCK ── */
-  .statement-block {
-    background: var(--ink); padding: 72px 80px;
-    text-align: center;
-  }
-  .statement-primary {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(18px, 2.5vw, 30px); font-weight: 400;
-    font-style: italic; color: var(--cream);
-    max-width: 780px; margin: 0 auto 24px; line-height: 1.4;
-  }
-  .statement-primary span { color: var(--terracotta); }
-  .statement-rule { width: 48px; height: 1px; background: var(--terracotta); margin: 0 auto 24px; }
-  .statement-secondary {
-    font-size: 11px; font-weight: 500; letter-spacing: 0.25em;
-    text-transform: uppercase; color: var(--mid-grey);
-  }
+/* ══ COVER ══════════════════════════════════════════ */
+.cover {
+  background: var(--dark);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 56px 80px;
+}
+.cover .eyebrow { color: #7a7168; margin-bottom: 0; }
+.cover-body { max-width: 760px; padding: 80px 0 0; }
+.cover-kicker {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  margin-bottom: 22px;
+}
+.cover-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(64px, 9.5vw, 116px);
+  font-weight: 400;
+  line-height: 0.9;
+  color: #edead3;
+  letter-spacing: -0.02em;
+  margin-bottom: 44px;
+}
+.cover-title em { font-style: italic; color: var(--accent); }
+.cover-sub {
+  font-size: 14px;
+  font-weight: 300;
+  color: #9e9589;
+  max-width: 400px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+.cover-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.cover-wordmark {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #edead3;
+  letter-spacing: 0.14em;
+}
+.cover-meta {
+  text-align: right;
+  font-size: 10px;
+  color: #7a7168;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 2.1;
+}
 
-  /* ── THREE LENSES ── */
-  .lenses-bg { background: var(--ink); padding: 88px 80px; }
-  .lenses-intro { max-width: 600px; margin-bottom: 64px; }
-  .lenses-intro .section-label { color: var(--terracotta); }
-  .lenses-intro .section-title { color: var(--cream); }
-  .lenses-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border: 1px solid rgba(255,255,255,0.1); }
-  .lens {
-    padding: 48px 40px;
-    border-right: 1px solid rgba(255,255,255,0.1);
-    position: relative;
-  }
-  .lens:last-child { border-right: none; }
-  .lens-accent { width: 100%; height: 2px; margin-bottom: 32px; }
-  .lens:nth-child(1) .lens-accent { background: var(--terracotta); }
-  .lens:nth-child(2) .lens-accent { background: var(--dusty-green); }
-  .lens:nth-child(3) .lens-accent { background: var(--gold); }
-  .lens-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 52px; font-weight: 400; line-height: 1;
-    color: rgba(240, 235, 220, 0.28); margin-bottom: 20px;
-  }
-  .lens-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px; font-weight: 600; line-height: 1.2;
-    color: var(--cream); margin-bottom: 8px;
-  }
-  .lens-subtitle {
-    font-size: 10px; font-weight: 600; letter-spacing: 0.25em;
-    text-transform: uppercase; margin-bottom: 24px;
-  }
-  .lens:nth-child(1) .lens-subtitle { color: var(--terracotta); }
-  .lens:nth-child(2) .lens-subtitle { color: var(--dusty-green); }
-  .lens:nth-child(3) .lens-subtitle { color: var(--gold); }
-  .lens-body { font-size: 13.5px; font-weight: 300; line-height: 1.85; color: #888; }
-  .lens-body em { color: var(--cream); font-style: italic; }
-  .lens-test {
-    margin-top: 28px; padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    font-size: 13.5px; font-weight: 300; color: #888; line-height: 1.85;
-  }
-  .lens-test strong { color: var(--terracotta); font-weight: 500; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: 8px; }
+/* ══ MANIFESTO ══════════════════════════════════════ */
+.manifesto {
+  background: var(--dark);
+  padding: 100px 80px;
+  border-top: 1px solid #1e1b18;
+}
+.manifesto .eyebrow { color: var(--accent); }
+.manifesto-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3.2vw, 42px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.45;
+  color: #cbc7bf;
+  max-width: 820px;
+  margin-bottom: 60px;
+}
+.manifesto-quote em { font-style: normal; color: var(--accent); }
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+  border-top: 1px solid #1e1b18;
+  padding-top: 48px;
+  max-width: 900px;
+}
+.mst-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.25em;
+  margin-bottom: 14px;
+  display: block;
+}
+.mst-text {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: #8a8480;
+  line-height: 1.9;
+}
+.mst-text strong { color: #b0aca7; font-weight: 400; }
 
-  /* ── BOUNDARY ── */
-  .boundary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 56px; border: 1px solid var(--light-grey); }
-  .b-col { padding: 48px 48px 52px; }
-  .b-col:first-child { background: var(--cream); border-right: 1px solid var(--light-grey); }
-  .b-title { font-size: 18px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 36px; }
-  .b-col:first-child .b-title { color: var(--mid-grey); }
-  .b-col:last-child .b-title { color: var(--terracotta); }
-  .b-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 22px; }
-  .b-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
-  .b-col:first-child .b-dot { background: var(--mid-grey); }
-  .b-col:last-child .b-dot { background: var(--terracotta); }
-  .b-text { font-size: 15px; line-height: 1.7; color: #3a3a3a; }
-  .b-text strong { display: block; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+/* ══ LIGHT SECTIONS ════════════════════════════════ */
+.section {
+  padding: 80px 80px;
+  border-bottom: 1px solid var(--light);
+}
+.section .eyebrow { color: var(--mid); }
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+.section-title em { font-style: italic; }
+.prose {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.95;
+  color: #484441;
+  max-width: 660px;
+}
+.prose p { margin-bottom: 18px; }
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { font-weight: 500; color: var(--ink); }
 
-  /* ── FILTER ── */
-  .filter-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--light-grey); margin-top: 56px; }
-  .filter-card { background: var(--warm-white); padding: 32px 32px 36px; }
-  .filter-card-wide { grid-column: 1 / -1; background: #1a1a1a; padding: 52px 48px 48px; display: flex; flex-direction: column; gap: 0; }
-  .filter-wide-header { margin-bottom: 36px; }
-  .filter-wide-title { font-family: 'Playfair Display', serif; font-size: clamp(22px, 2.8vw, 36px); font-weight: 400; font-style: italic; color: var(--cream); line-height: 1.25; margin-bottom: 16px; }
-  .filter-wide-desc { font-size: 14px; font-weight: 300; color: var(--mid-grey); line-height: 1.85; max-width: 620px; }
-  .filter-wide-split { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; }
-  .filter-split-item { border-left: 2px solid var(--terracotta); padding-left: 20px; padding-right: 24px; }
-  .filter-split-item .fsi-pct { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--terracotta); font-weight: 400; line-height: 1; margin-bottom: 10px; }
-  .filter-split-item .fsi-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); margin-bottom: 8px; }
-  .filter-split-item .fsi-desc { font-size: 13px; font-weight: 300; color: var(--mid-grey); line-height: 1.7; }
-  .filter-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 400; color: var(--light-grey); line-height: 1; margin-bottom: 16px; }
-  .filter-q { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; line-height: 1.3; margin-bottom: 12px; }
-  .filter-a { font-size: 13px; font-weight: 300; line-height: 1.8; color: #4a4a4a; }
+/* ══ THREE LENSES ══════════════════════════════════ */
+.lenses {
+  background: var(--dark);
+  padding: 88px 80px;
+  border-top: 1px solid #1e1b18;
+}
+.lenses .eyebrow { color: var(--accent); }
+.lenses .section-title { color: #edead3; margin-bottom: 0; }
+.lenses-intro { max-width: 540px; margin-bottom: 56px; }
+.lens-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid #1e1b18;
+  padding-top: 48px;
+}
+.lens { padding-right: 52px; }
+.lens:last-child { padding-right: 0; }
+.lens-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+.lens-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #edead3;
+  margin-bottom: 4px;
+}
+.lens-subtitle {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #484441;
+  margin-bottom: 18px;
+}
+.lens-body {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: #484441;
+}
+.lens-body em { color: #908c88; font-style: italic; }
+.lens-test {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #1e1b18;
+  font-size: 13px;
+  font-weight: 300;
+  color: #484441;
+  line-height: 1.85;
+}
+.lens-test strong {
+  display: block;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
 
-  /* ── BRAND UNIVERSE HEADER ── */
-  .brands-header { background: var(--ink); padding: 80px 80px 56px; }
-  .brands-header .section-label { color: var(--terracotta); }
-  .brands-header .section-title { color: var(--cream); }
-  .brands-header .prose { color: #888; }
+/* ══ BOUNDARIES ════════════════════════════════════ */
+.boundary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-top: 48px;
+}
+.b-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 28px;
+}
+.b-item { margin-bottom: 22px; }
+.b-item-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.b-item-desc {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: #484441;
+  line-height: 1.75;
+}
 
-  /* ── CATEGORY SECTION ── */
-  .cat-section { padding: 0 80px 72px; }
-  .cat-label {
-    font-size: 20px; font-weight: 700; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--terracotta);
-    padding-top: 64px; margin-bottom: 14px;
-    border-top: 1px solid var(--light-grey);
-  }
-  .cat-desc { font-size: 15px; font-weight: 300; color: var(--mid-grey); max-width: 660px; line-height: 1.75; margin-bottom: 44px; }
+/* ══ COMMERCIAL BAR ════════════════════════════════ */
+.commercial-bar {
+  background: var(--dark);
+  padding: 64px 80px;
+  border-top: 1px solid #1e1b18;
+}
+.commercial-bar .eyebrow { color: var(--accent); }
+.commercial-bar-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(16px, 2.1vw, 24px);
+  font-weight: 400;
+  font-style: italic;
+  color: #908c88;
+  line-height: 1.8;
+  max-width: 720px;
+}
+.commercial-bar-text strong { font-style: normal; color: #cbc7bf; font-weight: 400; }
 
-  /* ── BRAND GRID ── */
-  .brand-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .brand-grid.two { grid-template-columns: repeat(2, 1fr); }
+/* ══ FILTER ════════════════════════════════════════ */
+.filter-section {
+  padding: 80px 80px;
+  background: var(--tinted);
+  border-bottom: 1px solid var(--light);
+}
+.filter-section .eyebrow { color: var(--mid); }
+.filter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+  margin-top: 48px;
+}
+.filter-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--light);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.filter-q { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+.filter-a { font-size: 13px; font-weight: 300; color: #484441; line-height: 1.85; }
+.filter-structure {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid var(--light);
+}
+.filter-structure-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.filter-structure-desc {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: #484441;
+  line-height: 1.85;
+  max-width: 580px;
+  margin-bottom: 36px;
+}
+.floor-split {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.floor-split-item { border-left: 1px solid var(--accent); padding-left: 20px; }
+.floor-pct {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.floor-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.floor-desc { font-size: 13px; font-weight: 300; color: #484441; line-height: 1.75; }
 
-  /* ── BRAND CARD ── */
-  .brand-card { background: white; border: 1px solid var(--light-grey); display: flex; flex-direction: column; overflow: hidden; }
-  .brand-img-wrap {
-    width: 100%; aspect-ratio: 3 / 4; overflow: hidden; display: block;
-  }
-  .brand-img {
-    width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;
-  }
-  .brand-img-ph {
-    width: 100%; aspect-ratio: 3 / 4;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 22px; font-weight: 400; font-style: italic;
-    color: white; letter-spacing: 0.06em;
-  }
-  .brand-body { padding: 24px 24px 26px; flex: 1; display: flex; flex-direction: column; }
-  .brand-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
-  .brand-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 3px 8px; border: 1px solid; }
-  .tag-w { color: var(--dusty-green); border-color: var(--dusty-green); }
-  .tag-m { color: var(--slate); border-color: var(--slate); }
-  .tag-u { color: var(--terracotta); border-color: var(--terracotta); }
-  .tag-g { color: var(--gold); border-color: var(--gold); }
-  .brand-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; margin-bottom: 4px; line-height: 1.2; }
-  .brand-founder { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid-grey); margin-bottom: 14px; }
-  .brand-desc { font-size: 13px; font-weight: 300; line-height: 1.8; color: #4a4a4a; flex: 1; margin-bottom: 18px; }
-  .brand-footer { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 16px; border-top: 1px solid var(--light-grey); }
-  .brand-price span { display: block; font-size: 10px; font-weight: 400; color: var(--mid-grey); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
-  .brand-price { font-size: 12px; font-weight: 600; color: var(--ink); }
-  .brand-fit { font-size: 11px; font-style: italic; color: var(--terracotta); text-align: right; max-width: 160px; line-height: 1.5; }
+/* ══ BRAND UNIVERSE HEADER ═════════════════════════ */
+.brands-header {
+  background: var(--dark);
+  padding: 80px 80px 64px;
+  border-top: 1px solid #1e1b18;
+}
+.brands-header .eyebrow { color: var(--accent); }
+.brands-header .section-title { color: #edead3; margin-bottom: 24px; }
+.brands-header .prose { color: #484441; }
 
-  /* ── HERO CARD (wide, 2-col) ── */
-  .brand-hero { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--light-grey); background: white; margin-bottom: 28px; }
-  .brand-hero .brand-img-wrap { aspect-ratio: 4 / 5; }
-  .brand-hero .brand-img-ph { aspect-ratio: 4 / 5; height: auto; }
-  .brand-hero .brand-body { padding: 40px 40px 36px; justify-content: space-between; }
-  .brand-hero .brand-name { font-size: 26px; }
+/* ══ CATEGORY SECTION ══════════════════════════════ */
+.cat-section {
+  padding: 80px 80px;
+  border-bottom: 1px solid var(--light);
+}
+.cat-header { margin-bottom: 64px; }
+.cat-roman {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 10px;
+  display: block;
+}
+.cat-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4.5vw, 56px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+.cat-tagline {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--mid);
+  font-weight: 400;
+}
 
-  /* ── COMMERCIAL REALITY BAR ── */
-  .commercial-bar { background: var(--ink); padding: 72px 80px; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .commercial-bar-label { font-size: 10px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 28px; }
-  .commercial-bar-text { font-family: 'Playfair Display', serif; font-size: clamp(17px, 2.2vw, 26px); font-weight: 400; font-style: italic; color: var(--cream); line-height: 1.7; max-width: 820px; }
-  .commercial-bar-text strong { font-style: normal; color: var(--terracotta); font-weight: 400; }
+/* ══ BRAND GRID ════════════════════════════════════ */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px 48px;
+}
 
-  .brand-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(196,98,45,0.35); padding-bottom: 1px; transition: border-color 0.2s; }
-  .brand-name a:hover { border-bottom-color: var(--terracotta); }
+/* ══ BRAND BLOCK ═══════════════════════════════════ */
+.brand-img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: #d0ccc4;
+  position: relative;
+}
+.brand-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.brand-img-wrap:hover .brand-img { transform: scale(1.04); }
+.brand-img-ph {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-style: italic;
+  color: rgba(255,255,255,0.18);
+  letter-spacing: 0.1em;
+}
+.brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.brand-founder {
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 13px;
+}
+.brand-desc {
+  font-size: 13.5px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: #484441;
+  margin-bottom: 12px;
+}
+.brand-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+.brand-tag {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a09c98;
+}
+.brand-tag:not(:last-child)::after { content: ' · '; margin: 0 5px; }
 
-  /* ── PROOF STRIP ── */
+/* ══ PROOF STRIP ═══════════════════════════════════ */
+.proof-strip {
+  padding: 64px 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--tinted);
+  border-top: 1px solid var(--light);
+  border-bottom: 1px solid var(--light);
+}
+.proof-item { padding: 0 40px; border-right: 1px solid var(--light); }
+.proof-item:first-child { padding-left: 0; }
+.proof-item:last-child { border-right: none; }
+.proof-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.proof-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+/* ══ CLOSING ═══════════════════════════════════════ */
+.closing {
+  background: var(--dark);
+  padding: 100px 80px;
+  text-align: center;
+  border-top: 1px solid #1e1b18;
+}
+.closing .eyebrow { color: #35322e; margin-bottom: 40px; }
+.closing-main {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 4.2vw, 56px);
+  font-weight: 400;
+  font-style: italic;
+  color: #cbc7bf;
+  line-height: 1.3;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+.closing-main span { color: var(--accent); }
+.closing-rule { width: 1px; height: 44px; background: #242220; margin: 0 auto 32px; }
+.closing-sub {
+  font-size: 14px;
+  font-weight: 300;
+  color: #484441;
+  line-height: 1.9;
+  max-width: 400px;
+  margin: 0 auto 56px;
+}
+.closing-wordmark {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  color: #edead3;
+  letter-spacing: 0.14em;
+}
+
+/* ══ MOBILE ════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  .cover { padding: 36px 24px 40px; }
+  .cover-body { padding-top: 56px; }
+  .cover-title { font-size: clamp(52px, 15vw, 84px); }
+  .cover-sub { max-width: 100%; }
+  .cover-footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+  .cover-meta { text-align: left; }
+
+  .manifesto { padding: 60px 24px; }
+  .manifesto-grid { grid-template-columns: 1fr; gap: 32px; }
+
+  .section { padding: 56px 24px; }
+
+  .lenses { padding: 60px 24px; }
+  .lenses-intro { margin-bottom: 40px; }
+  .lens-grid { grid-template-columns: 1fr; gap: 40px; }
+  .lens { padding-right: 0; }
+
+  .commercial-bar { padding: 48px 24px; }
+
+  .section.boundaries { padding: 56px 24px; }
+  .boundary-grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .filter-section { padding: 56px 24px; }
+  .filter-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .floor-split { grid-template-columns: 1fr; gap: 24px; }
+
+  .brands-header { padding: 56px 24px 48px; }
+
+  .cat-section { padding: 56px 24px; }
+  .cat-header { margin-bottom: 48px; }
+  .brand-grid { grid-template-columns: 1fr 1fr; gap: 48px 24px; }
+
   .proof-strip {
-    background: var(--cream); padding: 60px 80px;
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
-    border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink);
+    padding: 48px 24px;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 32px;
   }
-  .proof-item { padding: 0 32px; border-right: 1px solid var(--light-grey); }
-  .proof-item:first-child { padding-left: 0; }
-  .proof-item:last-child { border-right: none; }
-  .proof-num { font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 400; line-height: 1; color: var(--ink); margin-bottom: 8px; }
-  .proof-label { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid-grey); }
+  .proof-item { padding: 0; border-right: none; }
+  .proof-item:nth-child(odd) { padding-right: 16px; border-right: 1px solid var(--light); }
 
-  /* ── CLOSING ── */
-  .closing { background: var(--ink); padding: 100px 80px; text-align: center; }
-  .closing-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 40px; }
-  .closing-line1 { font-family: 'Playfair Display', serif; font-size: clamp(14px, 2vw, 22px); font-weight: 400; color: var(--mid-grey); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 24px; }
-  .closing-main { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 64px); font-weight: 400; font-style: italic; color: var(--cream); line-height: 1.2; max-width: 800px; margin: 0 auto 48px; }
-  .closing-main span { color: var(--terracotta); }
-  .closing-rule { width: 1px; height: 60px; background: #2a2a2a; margin: 0 auto 40px; }
-  .closing-secondary { font-size: 15px; font-weight: 300; color: var(--mid-grey); letter-spacing: 0.03em; line-height: 1.9; max-width: 520px; margin: 0 auto 64px; }
-  .closing-wordmark { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--cream); letter-spacing: 0.12em; }
+  .closing { padding: 64px 24px; }
+}
 
-  /* ══ RESPONSIVE — MOBILE ════════════════════════════════════════════ */
-  @media (max-width: 768px) {
+@media (max-width: 480px) {
+  .brand-grid { grid-template-columns: 1fr; gap: 48px; }
+  .filter-grid { grid-template-columns: 1fr; }
+  .proof-strip { grid-template-columns: 1fr; row-gap: 0; }
+  .proof-item { padding: 24px 0 !important; border-right: none !important; border-bottom: 1px solid var(--light); }
+  .proof-item:last-child { border-bottom: none; }
+}
 
-    /* ── Cover ── */
-    .cover { padding: 36px 24px 40px; min-height: 100svh; }
-    .cover-eyebrow { font-size: 9px; letter-spacing: 0.22em; }
-    .cover-title { font-size: clamp(48px, 13vw, 72px); }
-    .cover-sub { font-size: 13px; max-width: 100%; }
-    .cover-footer { flex-direction: column; gap: 12px; }
-    .cover-meta { text-align: left; font-size: 10px; }
-    .cover-wordmark { font-size: 22px; }
-
-    /* ── Manifesto ── */
-    .manifesto { padding: 52px 24px; }
-    .manifesto-quote { font-size: clamp(20px, 5.5vw, 30px); margin-bottom: 36px; }
-    .manifesto-statements { grid-template-columns: 1fr; gap: 28px; }
-    .mst-text { font-size: 16px; }
-
-    /* ── Sections ── */
-    .section { padding: 52px 24px; }
-    .section-label { font-size: 9px; }
-    .section-title { font-size: clamp(26px, 7vw, 40px); }
-    .prose { font-size: 14.5px; }
-
-    /* ── Statement block ── */
-    .statement-block { padding: 52px 24px; }
-    .statement-primary { font-size: clamp(20px, 5.5vw, 30px); }
-
-    /* ── Three Lenses ── */
-    .lenses-bg { padding: 52px 24px; }
-    .lenses-intro { margin-bottom: 40px; }
-    .lenses-grid { grid-template-columns: 1fr; border: none; }
-    .lens { padding: 32px 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .lens:last-child { border-bottom: none; }
-    .lens-num { font-size: 48px; }
-    .lens-title { font-size: 18px; }
-    .lens-body { font-size: 14px; }
-    .lens-test { font-size: 13px; }
-
-    /* ── Boundaries ── */
-    .boundary-grid { grid-template-columns: 1fr; gap: 40px; }
-    .b-title { font-size: 12px; }
-    .b-text { font-size: 14px; }
-
-    /* ── Commercial bar ── */
-    .commercial-bar { padding: 48px 24px; }
-
-    /* ── Filter ── */
-    .filter-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
-    .filter-card { padding: 28px 20px; }
-    .filter-num { font-size: 32px; }
-    .filter-q { font-size: 14px; }
-    .filter-a { font-size: 13px; }
-    .filter-card-wide { padding: 36px 24px 32px; }
-    .filter-wide-title { font-size: clamp(18px, 5vw, 28px); }
-    .filter-wide-desc { font-size: 13px; }
-    .filter-wide-split { grid-template-columns: 1fr; gap: 24px; }
-    .filter-split-item { padding-left: 16px; padding-right: 0; border-left: 2px solid var(--terracotta); }
-    .fsi-pct { font-size: 32px; }
-
-    /* ── Brand universe header ── */
-    .brands-header { padding: 52px 24px; }
-
-    /* ── Category sections ── */
-    .cat-section { padding: 40px 24px; }
-    .cat-label { font-size: 9px; }
-    .cat-desc { font-size: 13.5px; margin-bottom: 32px; }
-    .brand-grid { grid-template-columns: 1fr; gap: 24px; }
-    .brand-card { border-radius: 2px; }
-    .brand-body { padding: 20px; }
-    .brand-name { font-size: 18px; }
-    .brand-founder { font-size: 11px; }
-    .brand-desc { font-size: 13.5px; }
-    .brand-footer { flex-direction: column; gap: 8px; align-items: flex-start; }
-    .brand-fit { text-align: left; max-width: 100%; font-size: 11px; }
-    .brand-price { font-size: 13px; }
-
-    /* ── Proof strip ── */
-    .proof-strip { flex-wrap: wrap; padding: 40px 24px; gap: 0; }
-    .proof-item { width: 50%; padding: 20px 16px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .proof-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
-    .proof-item:nth-last-child(-n+2) { border-bottom: none; }
-    .proof-num { font-size: 32px; }
-    .proof-label { font-size: 9px; }
-
-    /* ── Closing ── */
-    .closing { padding: 64px 24px; }
-    .closing-main { font-size: clamp(26px, 7.5vw, 48px); }
-    .closing-secondary { font-size: 14px; margin-bottom: 40px; }
-    .closing-wordmark { font-size: 24px; }
-  }
-
-  @media (max-width: 480px) {
-    .cover-title { font-size: clamp(42px, 12vw, 60px); }
-    .filter-grid { grid-template-columns: 1fr; }
-    .proof-item { width: 50%; }
-    .brand-tags { flex-wrap: wrap; gap: 4px; }
-  }
-
-  @media print {
-    /* ── Force full colour reproduction ── */
-    *, *::before, *::after {
-      -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-    }
-
-    /* ── Page setup: A4 landscape gives the editorial feel room to breathe ── */
-    @page {
-      size: A4 landscape;
-      margin: 0;
-    }
-
-    html, body {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* ── Each major section breaks onto its own page ── */
-    .cover, .manifesto, .lenses-bg, .brands-header, .commercial-bar,
-    .cat-section, .boundary-section, .filter-section, .proof-strip, .closing {
-      page-break-before: always;
-      break-before: page;
-    }
-    .cover { page-break-before: avoid; break-before: avoid; }
-
-    /* ── Prevent orphan cards mid-grid ── */
-    .brand-card, .filter-card, .filter-card-wide, .lens-card {
-      page-break-inside: avoid;
-      break-inside: avoid;
-    }
-
-    /* ── Tighten padding slightly for print ── */
-    .cover, .manifesto, .lenses-bg, .brands-header, .closing { padding: 48px 60px; }
-    .section, .cat-section, .filter-section, .boundary-section { padding: 48px 60px; }
-
-    /* ── Grids: 2-column brand grid fits well on landscape ── */
-    .brand-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .lenses-grid { grid-template-columns: repeat(3, 1fr); }
-    .filter-grid { grid-template-columns: repeat(3, 1fr); }
-
-    /* ── Suppress browser default headers/footers ── */
-    .cover-eyebrow { display: block; }
-  }
 </style>
 </head>
 <body>
 
-<!-- ══ COVER ══════════════════════════════════════════════════════════ -->
+
+<!-- ══ COVER ════════════════════════════════════════════════════════════ -->
 <div class="cover">
-  <div class="cover-eyebrow">And-a-Man · Curation Philosophy · Internal Working Document · 2026</div>
+  <div class="eyebrow">And-a-Man · Curation Philosophy · Internal Working Document · 2026</div>
 
   <div class="cover-body">
     <div class="cover-kicker">Not Indian fashion.</div>
     <div class="cover-title">Indian<br><em>Design.</em></div>
-    <div class="cover-rule"></div>
     <div class="cover-sub">
       A clear point of view on what And-a-Man stands for, what it curates, and the 25 designers who prove the thesis is real.
     </div>
@@ -478,36 +599,33 @@
 </div>
 
 
-<!-- ══ MANIFESTO ═════════════════════════════════════════════════════ -->
+<!-- ══ MANIFESTO ════════════════════════════════════════════════════════ -->
 <div class="manifesto">
-  <div class="manifesto-inner">
-    <span class="manifesto-label">§ The Point of View</span>
-    <div class="manifesto-quote">
-      "And-a-Man is the home of Indian design at its most alive:
-      <span>contemporary, confident,
-      and irreducibly itself."</span>
+  <span class="eyebrow">§ The Point of View</span>
+  <div class="manifesto-quote">
+    "And-a-Man is the home of Indian design at its most alive:
+    <em>contemporary, confident, and irreducibly itself."</em>
+  </div>
+  <div class="manifesto-grid">
+    <div>
+      <span class="mst-num">I</span>
+      <div class="mst-text"><strong>Indian fashion has arrived on the global stage.</strong> It doesn't need to explain itself. It doesn't need permission. It needs a home worthy of what it's becoming.</div>
     </div>
-    <div class="manifesto-statements">
-      <div class="mst">
-        <div class="mst-num">I</div>
-        <div class="mst-text"><strong>Indian fashion has arrived on the global stage.</strong> It doesn't need to explain itself. It doesn't need permission. It needs a home worthy of what it's becoming.</div>
-      </div>
-      <div class="mst">
-        <div class="mst-num">II</div>
-        <div class="mst-text"><strong>We are that home.</strong> A permanent, living platform for designers showing the world that Indian design leads — not explaining, not imitating — leading.</div>
-      </div>
-      <div class="mst">
-        <div class="mst-num">III</div>
-        <div class="mst-text"><strong>The edit is the argument.</strong> Every brand on the floor reinforces one idea: contemporary Indian design is not emerging — it is now undeniable.</div>
-      </div>
+    <div>
+      <span class="mst-num">II</span>
+      <div class="mst-text"><strong>We are that home.</strong> A permanent, living platform for designers showing the world that Indian design leads — not explaining, not imitating — leading.</div>
+    </div>
+    <div>
+      <span class="mst-num">III</span>
+      <div class="mst-text"><strong>The edit is the argument.</strong> Every brand on the floor reinforces one idea: contemporary Indian design is not emerging — it is now undeniable.</div>
     </div>
   </div>
 </div>
 
 
-<!-- ══ WHAT WE BELIEVE ═══════════════════════════════════════════════ -->
+<!-- ══ WHAT WE BELIEVE ══════════════════════════════════════════════════ -->
 <div class="section">
-  <div class="section-label">§ 01 — What We Believe</div>
+  <span class="eyebrow">§ 01 — What We Believe</span>
   <div class="section-title">Not Indian fashion.<br><em>Contemporary Indian design.</em></div>
   <div class="prose">
     <p>
@@ -523,61 +641,47 @@
 </div>
 
 
-<!-- ══ STATEMENT BLOCK ════════════════════════════════════════════════ -->
-<div class="statement-block">
-  <div class="statement-primary">
-    "And-a-Man is where Indian design stops explaining itself
-    and starts <span>setting the terms.</span>"
-  </div>
-  <div class="statement-rule"></div>
-  <div class="statement-secondary">The new Indian expression · For those who recognise it</div>
-</div>
-
-
-<!-- ══ THREE LENSES ═══════════════════════════════════════════════════ -->
-<div class="lenses-bg">
+<!-- ══ THREE LENSES ══════════════════════════════════════════════════════ -->
+<div class="lenses">
   <div class="lenses-intro">
-    <div class="section-label">§ 02 — The Three Lenses</div>
-    <div class="section-title" style="color: var(--cream);">Every brand we carry<br><em>must pass three tests.</em></div>
+    <span class="eyebrow">§ 02 — The Three Lenses</span>
+    <div class="section-title">Every brand we carry<br><em>must pass three tests.</em></div>
   </div>
 
-  <div class="lenses-grid">
+  <div class="lens-grid">
     <div class="lens">
-      <div class="lens-accent"></div>
-      <div class="lens-num">01</div>
+      <span class="lens-num">01</span>
       <div class="lens-title">Made with Intelligence</div>
       <div class="lens-subtitle">The Quality Floor</div>
       <div class="lens-body">
-        The product reflects real material and process knowledge. Handloom. Natural dyes. Textile innovation. Precise construction.<br>
+        The product reflects real material and process knowledge. Handloom. Natural dyes. Textile innovation. Precise construction.<br><br>
         <em>Never generic fabric with no thinking behind it.</em><br><br>
         This sets the quality floor — not the identity. We are not saying every brand must be craft-based. We are saying every brand must know what it's made of — and why.<br><br>
         A designer using technical fabric with intent passes. Using polyester because it's cheap does not.
       </div>
       <div class="lens-test">
-        <strong>The test</strong>
+        <strong>The Test</strong>
         Ask: why this fabric, why this process? If the answer is specific and reveals material thinking — they're in. If it's generic — they're not ready.
       </div>
     </div>
 
     <div class="lens">
-      <div class="lens-accent"></div>
-      <div class="lens-num">02</div>
+      <span class="lens-num">02</span>
       <div class="lens-title">Wears like the World</div>
       <div class="lens-subtitle">The Silhouette Standard</div>
       <div class="lens-body">
-        Every piece must feel current. Wearable in a wardrobe that includes Lemaire, Auralee, Loewe.<br>
+        Every piece must feel current. Wearable in a wardrobe that includes Lemaire, Auralee, Loewe.<br><br>
         <em>Not wedding-wear. Not costume.</em> Clothes for real life — Mumbai on a Tuesday, London at a gallery, New York at dinner.<br><br>
         This is not about looking Western. It's about looking now.
       </div>
       <div class="lens-test">
-        <strong>The test</strong>
+        <strong>The Test</strong>
         Does this piece sit naturally with the best global labels — not as "ethnic," but as an equal? If yes — we're interested. If it only works at a wedding — it's not for us.
       </div>
     </div>
 
     <div class="lens">
-      <div class="lens-accent"></div>
-      <div class="lens-num">03</div>
+      <span class="lens-num">03</span>
       <div class="lens-title">Sounds like India</div>
       <div class="lens-subtitle">The Voice Test</div>
       <div class="lens-body">
@@ -585,7 +689,7 @@
         <em>No apology. No nostalgia. No imitation.</em>
       </div>
       <div class="lens-test">
-        <strong>The test</strong>
+        <strong>The Test</strong>
         Remove the label. Remove the story. Does the garment itself carry an Indian design intelligence? If yes — it belongs. If it needs explanation — it doesn't.
       </div>
     </div>
@@ -593,56 +697,56 @@
 </div>
 
 
-<!-- ══ WHAT WE ARE / ARE NOT ══════════════════════════════════════════ -->
-<div class="section">
-  <div class="section-label">§ 03 — The Boundaries</div>
+<!-- ══ BOUNDARIES ════════════════════════════════════════════════════════ -->
+<div class="section boundaries">
+  <span class="eyebrow">§ 03 — The Boundaries</span>
   <div class="section-title">Curation is defined as much<br>by <em>exclusion</em> as inclusion.</div>
   <div class="boundary-grid">
-    <div class="b-col">
+    <div>
       <div class="b-title">What And-a-Man is not</div>
       <div class="b-item">
-        <div class="b-dot"></div>
-        <div class="b-text"><strong>Not a craft archive</strong>Beautiful weaving alone is not a curation criterion. There must be a design point of view.</div>
+        <div class="b-item-name">Not a craft archive</div>
+        <div class="b-item-desc">Beautiful weaving alone is not a curation criterion. There must be a design point of view.</div>
       </div>
       <div class="b-item">
-        <div class="b-dot"></div>
-        <div class="b-text"><strong>Not wedding-wear</strong>We carry pieces for the life your customer actually lives — including occasions, but especially the Tuesday after.</div>
+        <div class="b-item-name">Not wedding-wear</div>
+        <div class="b-item-desc">We carry pieces for the life your customer actually lives — including occasions, but especially the Tuesday after.</div>
       </div>
       <div class="b-item">
-        <div class="b-dot"></div>
-        <div class="b-text"><strong>Not a boutique or department store</strong>A concept space. A permanent platform.</div>
+        <div class="b-item-name">Not a boutique or department store</div>
+        <div class="b-item-desc">A concept space. A permanent platform.</div>
       </div>
       <div class="b-item">
-        <div class="b-dot"></div>
-        <div class="b-text"><strong>Not a substitute for Western luxury</strong>Indian design is not better value — it is a different, equal kind of excellence.</div>
+        <div class="b-item-name">Not a substitute for Western luxury</div>
+        <div class="b-item-desc">Indian design is not better value — it is a different, equal kind of excellence.</div>
       </div>
     </div>
-    <div class="b-col">
+    <div>
       <div class="b-title">What And-a-Man is</div>
       <div class="b-item">
-        <div class="b-dot"></div>
-        <div class="b-text"><strong>A living editorial</strong>The floor is a single coherent statement, reviewed every 60 days. Brands that strengthen the argument and move product stay. Brands that do one without the other are reviewed.</div>
+        <div class="b-item-name">A living editorial</div>
+        <div class="b-item-desc">The floor is a single coherent statement, reviewed every 60 days. Brands that strengthen the argument and move product stay.</div>
       </div>
       <div class="b-item">
-        <div class="b-dot"></div>
-        <div class="b-text"><strong>A platform for India's design voice</strong>The edit is the proof this voice is real, varied, and world-class.</div>
+        <div class="b-item-name">A platform for India's design voice</div>
+        <div class="b-item-desc">The edit is the proof this voice is real, varied, and world-class.</div>
       </div>
       <div class="b-item">
-        <div class="b-dot"></div>
-        <div class="b-text"><strong>Globally fluent, specifically Indian</strong>Both simultaneously. Neither in compromise.</div>
+        <div class="b-item-name">Globally fluent, specifically Indian</div>
+        <div class="b-item-desc">Both simultaneously. Neither in compromise.</div>
       </div>
       <div class="b-item">
-        <div class="b-dot"></div>
-        <div class="b-text"><strong>The trusted edit</strong>1,800+ Indian fashion brands means search fatigue. We are the answer: who to trust.</div>
+        <div class="b-item-name">The trusted edit</div>
+        <div class="b-item-desc">1,800+ Indian fashion brands means search fatigue. We are the answer: who to trust.</div>
       </div>
     </div>
   </div>
 </div>
 
 
-<!-- ══ COMMERCIAL REALITY ════════════════════════════════════════════ -->
+<!-- ══ COMMERCIAL REALITY ════════════════════════════════════════════════ -->
 <div class="commercial-bar">
-  <div class="commercial-bar-label">Commercial Reality</div>
+  <span class="eyebrow">Commercial Reality</span>
   <div class="commercial-bar-text">
     Culture builds desire. <strong>Sell-through builds the business.</strong><br>
     If it doesn't sell in 60 days, it leaves. If it needs discounting, it was a mistake.<br>
@@ -651,71 +755,70 @@
 </div>
 
 
-<!-- ══ FILTER ═══════════════════════════════════════════════════════ -->
-<div class="section" style="background: var(--cream);">
-  <div class="section-label">§ 04 — The Practical Filter</div>
+<!-- ══ PRACTICAL FILTER ══════════════════════════════════════════════════ -->
+<div class="filter-section">
+  <span class="eyebrow">§ 04 — The Practical Filter</span>
   <div class="section-title">Every brand must pass<br><em>six filters.</em></div>
   <div class="filter-grid">
-    <div class="filter-card">
+    <div>
       <div class="filter-num">01</div>
       <div class="filter-q">Material intelligence</div>
       <div class="filter-a">Fabric is the thinking. Why this material, this process? The answer must be specific. Vague answers fail immediately.</div>
     </div>
-    <div class="filter-card">
+    <div>
       <div class="filter-num">02</div>
       <div class="filter-q">Wearability</div>
       <div class="filter-a">Can it live beyond the occasion? A Lemaire customer on a Mumbai Tuesday is the test. If it only works at a wedding, it isn't for us.</div>
     </div>
-    <div class="filter-card">
+    <div>
       <div class="filter-num">03</div>
       <div class="filter-q">Indian POV</div>
       <div class="filter-a">Remove the label. Is India still in the room? If yes — it belongs. If not — it doesn't.</div>
     </div>
-    <div class="filter-card">
+    <div>
       <div class="filter-num">04</div>
       <div class="filter-q">Design clarity</div>
       <div class="filter-a">A genuine point of view, not a mood board. The brand should be recognisable without its name.</div>
     </div>
-    <div class="filter-card">
+    <div>
       <div class="filter-num">05</div>
       <div class="filter-q">Sell-through</div>
       <div class="filter-a">Does it work at ₹8–25K in this city, within 60 days? Commercial viability is not optional.</div>
     </div>
-    <div class="filter-card">
+    <div>
       <div class="filter-num">06</div>
       <div class="filter-q">Operational discipline</div>
       <div class="filter-a">Fulfilment in 7 days. Inventory clarity. 60-day review readiness. Great product and operational chaos are not a trade we make.</div>
     </div>
-    <div class="filter-card-wide">
-      <div class="filter-wide-header">
-        <div class="filter-wide-title">The floor is structured, not just curated.</div>
-        <div class="filter-wide-desc">Taste without commercial architecture is a gallery. We are a store. Every buying decision maps to a specific slot in the floor structure below — and is held accountable to it.</div>
+  </div>
+
+  <div class="filter-structure">
+    <div class="filter-structure-title">The floor is structured, not just curated.</div>
+    <div class="filter-structure-desc">Taste without commercial architecture is a gallery. We are a store. Every buying decision maps to a specific slot in the floor structure below — and is held accountable to it.</div>
+    <div class="floor-split">
+      <div class="floor-split-item">
+        <div class="floor-pct">60%</div>
+        <div class="floor-label">Sell-through drivers</div>
+        <div class="floor-desc">High-conversion pieces. Wearable, wanted, priced right for Mumbai. The commercial spine.</div>
       </div>
-      <div class="filter-wide-split">
-        <div class="filter-split-item">
-          <div class="fsi-pct">60%</div>
-          <div class="fsi-label">Sell-through drivers</div>
-          <div class="fsi-desc">High-conversion pieces. Wearable, wanted, priced right for Mumbai. The commercial spine.</div>
-        </div>
-        <div class="filter-split-item">
-          <div class="fsi-pct">30%</div>
-          <div class="fsi-label">Directional</div>
-          <div class="fsi-desc">Pulling the conversation forward. May sell slowly but define what the floor stands for.</div>
-        </div>
-        <div class="filter-split-item">
-          <div class="fsi-pct">10%</div>
-          <div class="fsi-label">Experimental edge</div>
-          <div class="fsi-desc">Pure editorial. Here because the argument needs it — not because it will clear in 60 days.</div>
-        </div>
+      <div class="floor-split-item">
+        <div class="floor-pct">30%</div>
+        <div class="floor-label">Directional</div>
+        <div class="floor-desc">Pulling the conversation forward. May sell slowly but define what the floor stands for.</div>
+      </div>
+      <div class="floor-split-item">
+        <div class="floor-pct">10%</div>
+        <div class="floor-label">Experimental edge</div>
+        <div class="floor-desc">Pure editorial. Here because the argument needs it — not because it will clear in 60 days.</div>
       </div>
     </div>
   </div>
 </div>
 
 
-<!-- ══ BRAND UNIVERSE ═════════════════════════════════════════════════ -->
+<!-- ══ BRAND UNIVERSE HEADER ═════════════════════════════════════════════ -->
 <div class="brands-header">
-  <div class="section-label">§ 05 — The Brand Universe</div>
+  <span class="eyebrow">§ 05 — The Brand Universe</span>
   <div class="section-title">25 designers who prove<br><em>the argument is real.</em></div>
   <div class="prose">
     <p>
@@ -725,233 +828,113 @@
 </div>
 
 
-<!-- ── CATEGORY I: THE GLOBAL VOICE ── -->
+<!-- ══ CATEGORY I — GLOBAL VOICE ════════════════════════════════════════ -->
 <div class="cat-section">
-  <div class="cat-label">Category I — The Global Voice · Indian Design, International Stage</div>
-  <div class="cat-desc">Designers with a direct, proven presence in global fashion — on runways, in international stockists, on Orchard Street. The brands that make the argument irrefutable: India is already leading.</div>
-
-  <div class="brand-grid">
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://theglassmagazine.com/wp-content/uploads/2024/01/KARTIK_RESEARCH_LOOK03_033-scaled.jpg" alt="Kartik Research" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #1a1a2a, #2a2a4a);">Kartik Research</div>
-      <div class="brand-body">
-        <div class="brand-tags">
-          <span class="brand-tag tag-m">Men</span>
-          <span class="brand-tag tag-w">Women</span>
-          <span class="brand-tag tag-g">Global</span>
-        </div>
-        <div class="brand-name"><a href="https://www.kartikresearch.com/" target="_blank" rel="noopener noreferrer">Kartik Research</a></div>
-        <div class="brand-founder">Kartik Kumra · Delhi / New York</div>
-        <div class="brand-desc">Shown internationally. New York presence on Orchard Street. A clear signal that Indian design is operating globally. Conceptual, minimal, research-led garments.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹15,000 – ₹65,000+</div>
-          <div class="brand-fit">Global-facing, conceptually strong. Essential.</div>
-        </div>
-      </div>
-    </div>
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000,format=auto/m/c83b/95e8/5114/5ca2/9b1c/39ad/0c2d/88db/9114/92ba/92ba.jpg" alt="Péro" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #C4622D, #E8904A);">péro</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span><span class="brand-tag tag-g">Global</span></div>
-        <div class="brand-name"><a href="https://pero.co.in/" target="_blank" rel="noopener noreferrer">péro</a></div>
-        <div class="brand-founder">Aneeth Arora · Est. 2009</div>
-        <div class="brand-desc">
-300+ global stockists. Vogue India Fashion Fund winner. Craft-forward design with genuine international distribution. Joyful, handmade, recognisable.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹8,000 – ₹35,000</div>
-          <div class="brand-fit">Proven international demand. Must-carry.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://cdn.tatlerasia.com/tatlerasia/i/2022/03/03190229-kapoor-cover_cover_1500x1000.jpg" alt="Dhruv Kapoor" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #2a1a3a, #5a3a7a);">Dhruv Kapoor</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span><span class="brand-tag tag-g">Global</span></div>
-        <div class="brand-name"><a href="https://dhruvkapoor.com/" target="_blank" rel="noopener noreferrer">Dhruv Kapoor</a></div>
-        <div class="brand-founder">Dhruv Kapoor · Mumbai</div>
-        <div class="brand-desc">
-40+ global stockists. International fashion weeks. A global design language with a clear Indian core. Strong commercial collaborations alongside runway work.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹25,000 – ₹1,50,000</div>
-          <div class="brand-fit">Global distribution with commercial intelligence.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://www.suketdhir.com/cdn/shop/files/6th_May_20251546_1386x.jpg?v=1750165849" alt="SUKETDHIR" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #1C3A4A, #2E6080);">SUKETDHIR</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-m">Men</span><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-g">Global</span></div>
-        <div class="brand-name"><a href="https://www.suketdhir.com/" target="_blank" rel="noopener noreferrer">SUKETDHIR</a></div>
-        <div class="brand-founder">Suket Dhir · Est. 2011</div>
-        <div class="brand-desc">
-International Woolmark Prize (Menswear, 2016). Ikat, khadi, and traditional textiles in contemporary silhouettes.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹8,500 – ₹38,000</div>
-          <div class="brand-fit">Internationally recognised design voice.</div>
-        </div>
-      </div>
-    </div>
+  <div class="cat-header">
+    <span class="cat-roman">Category I</span>
+    <div class="cat-name">Global Voice</div>
+    <div class="cat-tagline">India in global conversation</div>
   </div>
-</div>
-
-
-<!-- ── CATEGORY II: THE CRAFT CONTEMPORARIES ── -->
-<div class="cat-section">
-  <div class="cat-label">Category II — The Craft Contemporaries · Where Material Intelligence Meets Design Ambition</div>
-  <div class="cat-desc">Designers for whom craft is not a selling point — it is the design language. Their work earns its place through the intelligence of what it's made from and the clarity of what it's made into.</div>
 
   <div class="brand-grid">
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://assets.vogue.in/photos/61b3b657310967f8c82b14e8/2:3/w_2240,c_limit/Raw Mango, SherBagh Campaign Images (13).jpg" alt="Raw Mango" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #8B6914, #C4A24A);">Raw Mango</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name"><a href="https://rawmango.com/" target="_blank" rel="noopener noreferrer">Raw Mango</a></div>
-        <div class="brand-founder">Sanjay Garg · Est. 2008</div>
-        <div class="brand-desc">
-Reframed Chanderi into a contemporary fabric language. Restrained palette, strong formal clarity, and textile-led design.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹6,500 – ₹45,000</div>
-          <div class="brand-fit">Sets the craft-design benchmark.</div>
-        </div>
+
+    <!-- Kartik Research -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://theglassmagazine.com/wp-content/uploads/2024/01/KARTIK_RESEARCH_LOOK03_033-scaled.jpg"
+          alt="Kartik Research"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#1c1e22;">Kartik Research</div>
+      </div>
+      <div class="brand-name">Kartik Research</div>
+      <div class="brand-founder">Kartik Kumra · Est. 2021</div>
+      <div class="brand-desc">Research-driven garments with a global silhouette. Minimal, deliberate, and materially precise — Indian design expressed without explanation.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Menswear</span>
+        <span class="brand-tag">Global</span>
+        <span class="brand-tag">Minimal</span>
+        <span class="brand-tag">Structured</span>
       </div>
     </div>
 
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://www.anavila.com/wp-content/uploads/ss17_34-1.jpg" alt="Anavila" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #5C6B4A, #8A9E72);">Anavila</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name"><a href="https://www.anavila.com/" target="_blank" rel="noopener noreferrer">Anavila</a></div>
-        <div class="brand-founder">Anavila Misra · Est. 2012</div>
-        <div class="brand-desc">
-Pioneered the linen sari. Material-first design with a quiet, confident aesthetic.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹9,000 – ₹32,000</div>
-          <div class="brand-fit">Defined a category.</div>
-        </div>
+    <!-- Dhruv Kapoor -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://cdn.tatlerasia.com/tatlerasia/i/2022/03/03190229-kapoor-cover_cover_1500x1000.jpg"
+          alt="Dhruv Kapoor"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#20182a;">Dhruv Kapoor</div>
+      </div>
+      <div class="brand-name">Dhruv Kapoor</div>
+      <div class="brand-founder">Dhruv Kapoor · Est. 2014</div>
+      <div class="brand-desc">A globally fluent design language rooted in Indian sensibility. Balances runway presence with commercial clarity across categories.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Menswear</span>
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Global</span>
+        <span class="brand-tag">Street-Influenced</span>
       </div>
     </div>
 
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://www.woolmark.com/globalassets/_06-new-woolmark/_2-fashion/_old/fashion/a-sum-of-parts/bodice_loobook-finals-woolmark-gallery3-image10.jpg" alt="Bodice" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #1a1a2e, #3A3A5C);">Bodice</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name"><a href="https://bodicestudio.com/" target="_blank" rel="noopener noreferrer">Bodice</a></div>
-        <div class="brand-founder">Ruchika Sachdeva · Est. 2011</div>
-        <div class="brand-desc">
-Vogue India Fashion Fund winner. A distinct design language for the modern Indian woman — neither traditional nor Western.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹9,500 – ₹38,000</div>
-          <div class="brand-fit">A clear contemporary women's voice.</div>
-        </div>
+    <!-- SUKETDHIR -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://www.suketdhir.com/cdn/shop/files/6th_May_20251546_1386x.jpg?v=1750165849"
+          alt="SUKETDHIR"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#18242e;">SUKETDHIR</div>
+      </div>
+      <div class="brand-name">SUKETDHIR</div>
+      <div class="brand-founder">Suket Dhir · Est. 2011</div>
+      <div class="brand-desc">Textile intelligence applied to contemporary form. Traditional materials reworked into silhouettes that feel current, not referential.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Menswear</span>
+        <span class="brand-tag">Global</span>
+        <span class="brand-tag">Textile-led</span>
+        <span class="brand-tag">Contemporary</span>
       </div>
     </div>
 
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://cdn.esquireindia.co.in/editor-images/2025-08-13T08%3A35%3A11.139Z-Inline5.jpg" alt="Abraham and Thakore" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #2C3E50, #4A6278);">A&T</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name"><a href="https://abrahamandthakore.com/" target="_blank" rel="noopener noreferrer">Abraham &amp; Thakore</a></div>
-        <div class="brand-founder">David Abraham &amp; Rakesh Thakore · Est. 1992</div>
-        <div class="brand-desc">
-          Thirty years. NID graduates. Handcrafted textiles in silhouettes that draw from global fashion while belonging entirely to an Indian design vocabulary. The proof this is a mature category with serious intellectual lineage — not something that started last season.
-        </div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹12,000 – ₹55,000</div>
-          <div class="brand-fit">Established design authority.</div>
-        </div>
+    <!-- Kardo -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://kardo.co/wp-content/uploads/2024/08/Kardo-AW-2024-collection-35.jpg"
+          alt="Kardo"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#1e1c19;">Kardo</div>
+      </div>
+      <div class="brand-name">Kardo</div>
+      <div class="brand-founder">Rikki Kher · Est. 2013</div>
+      <div class="brand-desc">Quiet, globally wearable menswear built on Indian textile processes. Each piece is constructed with intent, not ornament.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Menswear</span>
+        <span class="brand-tag">Craft</span>
+        <span class="brand-tag">Everyday</span>
+        <span class="brand-tag">Textile-led</span>
       </div>
     </div>
 
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://antar-agni.com/cdn/shop/products/1_190a5f77-9bf6-450d-88cb-ae173d01654a.jpg?v=1737377033&width=1000" alt="Antar-Agni" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #2A2A2A, #4A4A4A);">Antar-Agni</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-m">Men</span><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name"><a href="https://antar-agni.com/" target="_blank" rel="noopener noreferrer">Antar-Agni</a></div>
-        <div class="brand-founder">Ujjawal Dubey · Est. 2013</div>
-        <div class="brand-desc">
-          "Between fire." Tradition and modernity, structure and flow, Indian craft and global silhouette. International Woolmark Prize finalist. Among the most architecturally sophisticated garments being produced in India — draped, layered, formal intelligence that rewards looking.
-        </div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹9,000 – ₹40,000</div>
-          <div class="brand-fit">Strong formal design language.</div>
-        </div>
+    <!-- Harago -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://haragojaipur.com/cdn/shop/files/25-02-2024Harago00081.jpg?v=1714459550&width=1206"
+          alt="Harago"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#1a1e22;">Harago</div>
       </div>
-    </div>
-
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://www.ka-sha.com/cdn/shop/products/Ka-Sha-1153_2048x.jpg?v=1668584550" alt="Ka-Sha" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #5C3D2E, #A07055);">Ka-Sha</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name"><a href="https://www.ka-sha.com/" target="_blank" rel="noopener noreferrer">Ka-Sha</a></div>
-        <div class="brand-founder">Karishma Shahani Khan · Est. 2012</div>
-        <div class="brand-desc">
-          Appliqué embroidery, quilting, tie-dye, hand painting — the central design idea, not decoration. Indian handicraft as a formal language, applied with the rigour a Western designer brings to cut. One-of-a-kind quality that cannot be replicated at scale.
-        </div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹7,500 – ₹28,000</div>
-          <div class="brand-fit">Craft applied with design rigour.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://houseofwovenstories.com/cdn/shop/files/miraj-127-silk-dress-handwoven-pure-silk-artisanal-luxury-fashion-injiri-houseofwovenstories.jpg?v=1759994822&width=533" alt="Injiri" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #6B4F3A, #A07855);">Injiri</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name"><a href="https://www.injiri.co.in/" target="_blank" rel="noopener noreferrer">Injiri</a></div>
-        <div class="brand-founder">Chinar Farooqui · Est. 2009</div>
-        <div class="brand-desc">
-          The name means "Indian textile" — specifically the Madras check exported from South India to West Africa. Cloth crossing cultures, carrying history without announcing it. Indigo, natural dye traditions, flowing silhouettes built for actual Indian heat. Sounds like India without needing to say so.
-        </div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹8,000 – ₹28,000</div>
-          <div class="brand-fit">Textile-led, culturally grounded.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://assets.vogue.in/photos/5d9dcd94e6f5b200081e5d97/master/w_1024%2Cc_limit/LMIFW-SS-20-D1-S1a-Ragini-Ahuja-Runway-111.JPG" alt="IKAI" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #2D4A22, #4A7A36);">IKAI</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-u">Unisex</span></div>
-        <div class="brand-name"><a href="https://ikaibyraginiahuja.com/" target="_blank" rel="noopener noreferrer">IKAI by Ragini Ahuja</a></div>
-        <div class="brand-founder">Ragini Ahuja · Est. 2013</div>
-        <div class="brand-desc">
-          Boxy. Androgynous. Architecturally rigorous. Vogue India Fashion Fund finalist. IKAI pushes what Indian design looks like when freed from traditional garment conventions — natural fibres, unusual material combinations, silhouettes that challenge the category itself.
-        </div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹10,000 – ₹42,000</div>
-          <div class="brand-fit">Concept-driven, form-forward.</div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://nirmohafashionhouse.com/cdn/shop/files/NIRMOOHA9567.jpg?v=1759578677&width=1000" alt="Nirmooha" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #5C3040, #8C5070);">Nirmooha</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name"><a href="https://nirmohafashionhouse.com/" target="_blank" rel="noopener noreferrer">Nirmooha</a></div>
-        <div class="brand-founder">Prreeti Jaiin Nainutia · Est. 2013</div>
-        <div class="brand-desc">Embroidery and embellishment in contemporary silhouette frameworks. Occasion-adjacent but wearable.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹14,000 – ₹65,000</div>
-          <div class="brand-fit">Higher price, festive-relevant.</div>
-        </div>
+      <div class="brand-name">Harago</div>
+      <div class="brand-founder">Harsh Agarwal · Est. 2021</div>
+      <div class="brand-desc">Craft-forward menswear with a modern silhouette. Soft structure, material depth, and a clear independent point of view.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Menswear</span>
+        <span class="brand-tag">Craft</span>
+        <span class="brand-tag">Contemporary</span>
+        <span class="brand-tag">Relaxed</span>
       </div>
     </div>
 
@@ -959,75 +942,113 @@ Vogue India Fashion Fund winner. A distinct design language for the modern India
 </div>
 
 
-<!-- ── CATEGORY III: THE SURFACE MASTERS ── -->
+<!-- ══ CATEGORY II — MATERIAL INTELLIGENCE ══════════════════════════════ -->
 <div class="cat-section">
-  <div class="cat-label">Category III — The Surface Masters · Print, Dye, and Painted Craft as Design Form</div>
-  <div class="cat-desc">Designers who have made a specific surface craft — block printing, natural dyeing, freehand hand-painting — into a complete design language. The material is the surface and the surface is the meaning.</div>
+  <div class="cat-header">
+    <span class="cat-roman">Category II</span>
+    <div class="cat-name">Material Intelligence</div>
+    <div class="cat-tagline">Where fabric is the design language</div>
+  </div>
 
   <div class="brand-grid">
 
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://www.elahe.in/cdn/shop/files/278_43f8d27d-19e4-44ed-8a20-c7c3f29572b8_1600x.png?v=1719853298" alt="Nambi-Kai" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #3A2A1A, #7A5A3A);">Nambi-Kai</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name"><a href="https://nambi-kai.com/" target="_blank" rel="noopener noreferrer">Nambi-Kai</a></div>
-        <div class="brand-founder">Delshia Antony Raj · Chennai · Est. 2021</div>
-        <div class="brand-desc">
-Natural dye, freehand-painted textiles with no templates. Early international placements and strong craft identity.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹6,000 – ₹22,000</div>
-          <div class="brand-fit">Emerging craft voice.</div>
-        </div>
+    <!-- 11.11 -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://assets.vogue.in/photos/5f0e9c4390d963fb71a4c210/2:3/w_2560%2Cc_limit/417118_5471_20_21A.jpg"
+          alt="11.11 / eleven eleven"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#1a1a1a;">11.11</div>
+      </div>
+      <div class="brand-name">11.11 / eleven eleven</div>
+      <div class="brand-founder">Shani Himanshu, Mia Morikawa · Est. 2010</div>
+      <div class="brand-desc">A system built on natural indigo, hand-spun cotton, and process integrity. Material is not a feature — it is the design.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Textile-led</span>
+        <span class="brand-tag">Craft</span>
+        <span class="brand-tag">Natural Dye</span>
+        <span class="brand-tag">Unisex</span>
       </div>
     </div>
 
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://assets.vogue.in/photos/5f0e9c4390d963fb71a4c210/2:3/w_2560%2Cc_limit/417118_5471_20_21A.jpg" alt="11.11" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #1A1A1A, #3A3A3A);">11.11</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name"><a href="https://11-11.in/" target="_blank" rel="noopener noreferrer">11.11 / eleven eleven</a></div>
-        <div class="brand-founder">Shani Himanshu &amp; Mia Morikawa · Est. 2010</div>
-        <div class="brand-desc">
-Natural indigo, hand-spun fabrics, and slow production systems. Material practice as philosophy.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹9,000 – ₹38,000</div>
-          <div class="brand-fit">Highly material-driven.</div>
-        </div>
+    <!-- Injiri -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://houseofwovenstories.com/cdn/shop/files/miraj-127-silk-dress-handwoven-pure-silk-artisanal-luxury-fashion-injiri-houseofwovenstories.jpg?v=1759994822&width=533"
+          alt="Injiri"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#2a1e14;">Injiri</div>
+      </div>
+      <div class="brand-name">Injiri</div>
+      <div class="brand-founder">Chinar Farooqui · Est. 2009</div>
+      <div class="brand-desc">Textiles as narrative, expressed through fluid, wearable forms. Rooted in craft, but resolved for contemporary life.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Craft</span>
+        <span class="brand-tag">Textile-led</span>
+        <span class="brand-tag">Fluid</span>
       </div>
     </div>
 
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://chidiyaa.com/cdn/shop/products/IMG_9156.jpg?v=1746016164&width=900" alt="Chidiyaa" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #8B3A52, #C4657A);">Chidiyaa</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name"><a href="https://chidiyaa.com/" target="_blank" rel="noopener noreferrer">Chidiyaa</a></div>
-        <div class="brand-founder">Rachana Reddy · Est. 2013</div>
-        <div class="brand-desc">
-          Block prints rooted in the Jaipur hand block printing tradition — whimsical, joyful, formally sound. Natural dyes, breathable silhouettes, distinctive colour. Brings joy to the floor: customers smile when they see it, then buy it because the fabric and cut actually work.
-        </div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹5,000 – ₹18,000</div>
-          <div class="brand-fit">Accessible craft entry point.</div>
-        </div>
+    <!-- Anavila -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://www.anavila.com/wp-content/uploads/ss17_34-1.jpg"
+          alt="Anavila"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#1e2618;">Anavila</div>
+      </div>
+      <div class="brand-name">Anavila</div>
+      <div class="brand-founder">Anavila Misra · Est. 2012</div>
+      <div class="brand-desc">Defined a modern language around linen in India. Controlled palette, restrained silhouettes, and complete material clarity.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Linen</span>
+        <span class="brand-tag">Minimal</span>
+        <span class="brand-tag">Contemporary</span>
       </div>
     </div>
 
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://saundh.com/cdn/shop/files/PU08.jpg?v=1772264334&width=1000" alt="Saundh" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #3A5C3A, #5A8C5A);">Saundh</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name"><a href="https://saundh.com/" target="_blank" rel="noopener noreferrer">Saundh</a></div>
-        <div class="brand-founder">Sabby Saluja · Est. 2019</div>
-        <div class="brand-desc">
-Plant-based dyes, earthy palette, and minimal silhouettes. Fabric feel is central to the experience.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹6,500 – ₹24,000</div>
-          <div class="brand-fit">Earth-toned, material-led.</div>
-        </div>
+    <!-- The Summer House -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://thesummerhouse.in/cdn/shop/files/253_f423aa40-42ef-42c4-8f59-1ea0c24246f3_1728x.jpg?v=1773749246"
+          alt="The Summer House"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#181e18;">The Summer House</div>
+      </div>
+      <div class="brand-name">The Summer House</div>
+      <div class="brand-founder">Shivika Agarwal · Est. 2017</div>
+      <div class="brand-desc">Everyday clothing built on fabric discipline and ethical production. Designed for longevity, not seasonality.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Everyday</span>
+        <span class="brand-tag">Sustainable</span>
+        <span class="brand-tag">Minimal</span>
+      </div>
+    </div>
+
+    <!-- Bodice -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://www.woolmark.com/globalassets/_06-new-woolmark/_2-fashion/_old/fashion/a-sum-of-parts/bodice_loobook-finals-woolmark-gallery3-image10.jpg"
+          alt="Bodice"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#1a1a2a;">Bodice</div>
+      </div>
+      <div class="brand-name">Bodice</div>
+      <div class="brand-founder">Ruchika Sachdeva · Est. 2011</div>
+      <div class="brand-desc">Architectural silhouettes shaped through material exploration and restraint. Clean, intelligent design with global resonance.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Global</span>
+        <span class="brand-tag">Minimal</span>
+        <span class="brand-tag">Structured</span>
       </div>
     </div>
 
@@ -1035,145 +1056,353 @@ Plant-based dyes, earthy palette, and minimal silhouettes. Fabric feel is centra
 </div>
 
 
-<!-- ── CATEGORY IV: THE WOVEN ORIGINALS ── -->
+<!-- ══ CATEGORY III — EXPRESSION LAYER ══════════════════════════════════ -->
 <div class="cat-section">
-  <div class="cat-label">Category IV — The Woven Originals · India's Textile Heritage, Reimagined with Design Ambition</div>
-  <div class="cat-desc">Brands where a specific weaving tradition — Chanderi, Banarasi, Kanjeevaram, handloom — is the starting point. The craft knowledge is generational. The design thinking is entirely of the present.</div>
+  <div class="cat-header">
+    <span class="cat-roman">Category III</span>
+    <div class="cat-name">Expression Layer</div>
+    <div class="cat-tagline">Print, colour, identity</div>
+  </div>
 
   <div class="brand-grid">
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://assets.vogue.in/photos/6336d0646193305ad0d0f62c/2:3/w_2560%2Cc_limit/Valley%2520of%2520Flowers.JPG" alt="Ekaya" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #7B3F6E, #B56AA8);">Ekaya</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name"><a href="https://ekaya.in/" target="_blank" rel="noopener noreferrer">Ekaya</a></div>
-        <div class="brand-founder">Palak Shah · Est. 2013</div>
-        <div class="brand-desc">Banarasi weaving reinterpreted through contemporary colour and form.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹12,000 – ₹45,000</div>
-          <div class="brand-fit">Modernised Banarasi.</div>
-        </div>
+
+    <!-- Jodi -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://thejodilife.com/cdn/shop/products/0O5A8950.jpg?v=1752217353"
+          alt="Jodi"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#201a16;">Jodi</div>
+      </div>
+      <div class="brand-name">Jodi</div>
+      <div class="brand-founder">Gauri &amp; Amrita · Est. 2014</div>
+      <div class="brand-desc">Print as the central design language. Bold, recognisable, and constructed for repeat wear — not just visual impact.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Menswear</span>
+        <span class="brand-tag">Print</span>
+        <span class="brand-tag">Colour</span>
+        <span class="brand-tag">Statement</span>
       </div>
     </div>
 
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://dressfolk.com/cdn/shop/files/Popsicle_Paradise.jpg?v=1767073759&width=1000" alt="Dressfolk" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #3D5A4F, #6B9E8F);">Dressfolk</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name"><a href="https://dressfolk.com/" target="_blank" rel="noopener noreferrer">Dressfolk</a></div>
-        <div class="brand-founder">Lavanya Nalli · Est. 2015</div>
-        <div class="brand-desc">Weaver-first model across multiple regions. Handloom positioned within modern silhouettes.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹5,500 – ₹22,000</div>
-          <div class="brand-fit">Strong handloom positioning.</div>
-        </div>
+    <!-- Saaksha & Kinni -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://saakshakinni.com/wp-content/uploads/2021/08/51.jpg"
+          alt="Saaksha &amp; Kinni"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#1e1820;">Saaksha &amp; Kinni</div>
+      </div>
+      <div class="brand-name">Saaksha &amp; Kinni</div>
+      <div class="brand-founder">Saaksha Bhat, Kinni Singh · Est. 2015</div>
+      <div class="brand-desc">Surface-driven design with a contemporary silhouette. Distinct visual identity translated into wearable forms.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Print</span>
+        <span class="brand-tag">Contemporary</span>
+        <span class="brand-tag">Global</span>
       </div>
     </div>
 
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://assets.vogue.in/photos/5d91f3d208a9c00008ef9562/master/w_1600,c_limit/Angadi____ Heritage Campaign Shot (3).jpg" alt="House of Angadi" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #6B4A1A, #A07830);">House of Angadi</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name"><a href="https://angadi.co/" target="_blank" rel="noopener noreferrer">House of Angadi</a></div>
-        <div class="brand-founder">Bengaluru · Est. 1928 (revived)</div>
-        <div class="brand-desc">Legacy saree house with a contemporary design lens. Kanjeevaram executed with precision and updated colour systems. The South India textile anchor in our edit — and a complement to Nambi-Kai that gives the floor genuine geographic breadth.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹15,000 – ₹80,000</div>
-          <div class="brand-fit">South Indian heritage anchor.</div>
-        </div>
+    <!-- Chidiyaa -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://chidiyaa.com/cdn/shop/products/IMG_9156.jpg?v=1746016164&width=900"
+          alt="Chidiyaa"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#2a1620;">Chidiyaa</div>
+      </div>
+      <div class="brand-name">Chidiyaa</div>
+      <div class="brand-founder">Rachana Reddy · Est. 2013</div>
+      <div class="brand-desc">Block print-led clothing that balances accessibility with design clarity. Light, breathable, and consistently wearable.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Craft</span>
+        <span class="brand-tag">Print</span>
+        <span class="brand-tag">Everyday</span>
       </div>
     </div>
+
+    <!-- Saundh -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://saundh.com/cdn/shop/files/PU08.jpg?v=1772264334&width=1000"
+          alt="Saundh"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#1e2a1e;">Saundh</div>
+      </div>
+      <div class="brand-name">Saundh</div>
+      <div class="brand-founder">Sabby Saluja · Est. 2019</div>
+      <div class="brand-desc">Natural dyes and grounded palettes define the brand. Quiet, sensory clothing built around fabric and touch.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Natural Dye</span>
+        <span class="brand-tag">Craft</span>
+        <span class="brand-tag">Earthy</span>
+      </div>
+    </div>
+
+    <!-- Nambi-Kai -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://www.elahe.in/cdn/shop/files/278_43f8d27d-19e4-44ed-8a20-c7c3f29572b8_1600x.png?v=1719853298"
+          alt="Nambi-Kai"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#22180e;">Nambi-Kai</div>
+      </div>
+      <div class="brand-name">Nambi-Kai</div>
+      <div class="brand-founder">Delshia Antony Raj · Est. 2021</div>
+      <div class="brand-desc">Freehand, hand-painted textiles with no repetition. Each piece carries individuality without compromising structure.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Menswear</span>
+        <span class="brand-tag">Hand-painted</span>
+        <span class="brand-tag">Craft</span>
+        <span class="brand-tag">Artistic</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
 
-<!-- ── CATEGORY V: THE EVERYDAY REGISTER ── -->
+<!-- ══ CATEGORY IV — CONTEMPORARY WARDROBE ══════════════════════════════ -->
 <div class="cat-section">
-  <div class="cat-label">Category V — The Everyday Register · Indian Design for the Life You Actually Live</div>
-  <div class="cat-desc">Brands that make the new Indian design voice wearable across the full week — not just the notable occasion. Commercially essential, creatively honest, and the brands that build the loyal repeat customer.</div>
+  <div class="cat-header">
+    <span class="cat-roman">Category IV</span>
+    <div class="cat-name">Contemporary Wardrobe</div>
+    <div class="cat-tagline">The Tuesday engine</div>
+  </div>
 
   <div class="brand-grid">
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://www.stylemati.in/cdn/shop/files/mati-accessories-egg-shell-striped-tote-bag-buy-handwoven-pure-cotton-bag-by-mati-sustainable-ethical-luxury-brand-1219687947.jpg?v=1770460296&width=1000" alt="Mati" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #6B5040, #A07860);">Mati</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name"><a href="https://www.stylemati.in/" target="_blank" rel="noopener noreferrer">Mati</a></div>
-        <div class="brand-founder">Fatima K. Punjaabi · Est. 2017</div>
-        <div class="brand-desc">Handwoven cotton and a restrained design language. Built for everyday use.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹4,500 – ₹20,000</div>
-          <div class="brand-fit">Everyday material-led brand.</div>
-        </div>
+
+    <!-- Cord -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://www.cordstudio.in/cdn/shop/files/DSCF1480_900x.jpg?v=1754907272"
+          alt="Cord"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#1a2a1e;">Cord</div>
+      </div>
+      <div class="brand-name">Cord</div>
+      <div class="brand-founder">Neha Singh, Pranav Guglani · Est. 2015</div>
+      <div class="brand-desc">Clean, globally aligned silhouettes executed in Indian fabrics. Designed to sit naturally in a modern wardrobe.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Menswear</span>
+        <span class="brand-tag">Contemporary</span>
+        <span class="brand-tag">Everyday</span>
+        <span class="brand-tag">Minimal</span>
       </div>
     </div>
 
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://lovebirds-studio.com/cdn/shop/files/0E7A8778.jpg?crop=center&height=5196&v=1771085681&width=3464" alt="Lovebirds" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #5C3040, #9C5070);">Lovebirds</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name"><a href="https://lovebirds-studio.com/" target="_blank" rel="noopener noreferrer">Lovebirds</a></div>
-        <div class="brand-founder">Siddhartha Tytler &amp; Shingai Mutasa · Est. 2009</div>
-        <div class="brand-desc">Fifteen years of consistent excellence. Playful but structured, Indian in sensibility without being overtly ethnic. Fabric choices excellent, colour work among the best. Doesn't shout — earns a second look, and always a first purchase, then a second.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹8,000 – ₹30,000</div>
-          <div class="brand-fit">Consistent repeat appeal.</div>
-        </div>
+    <!-- Saphed -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://saphed.com/cdn/shop/files/SaphedSummer26__17-03-26_Shot144036.jpg?v=1774089539&width=1440"
+          alt="Saphed"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#262422;">Saphed</div>
+      </div>
+      <div class="brand-name">Saphed</div>
+      <div class="brand-founder">Est. 2022</div>
+      <div class="brand-desc">Minimal, everyday clothing built on simplicity and clarity. Focused on function, comfort, and repeat use.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Everyday</span>
+        <span class="brand-tag">Minimal</span>
+        <span class="brand-tag">Essential</span>
       </div>
     </div>
 
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://labelrama.com/cdn/shop/files/TulipBlueStripesFront_960x_crop_center.jpg?v=1720023919" alt="Label RaMa" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #4A3A5C, #7A6A9C);">Label RaMa</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span></div>
-        <div class="brand-name"><a href="https://labelrama.com/" target="_blank" rel="noopener noreferrer">Label RaMa</a></div>
-        <div class="brand-founder">Rashi Menda · Est. 2017</div>
-        <div class="brand-desc">Jamdani, muslin, and khadi in minimalist silhouettes that could sit in a Scandinavian design store — and yet unmistakably Indian. That tension is the entire design point. Rural craft clusters, genuine design intelligence. Clothing that feels expensive because it's made with real skill.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹6,000 – ₹22,000</div>
-          <div class="brand-fit">Minimal, craft-led.</div>
-        </div>
+    <!-- Sui -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://www.wearesui.com/cdn/shop/files/Copy_of_SUI_1080x1080_20_500x.png?v=1771235846"
+          alt="Sui"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#1e2420;">Sui</div>
+      </div>
+      <div class="brand-name">Sui</div>
+      <div class="brand-founder">Est. c. 2020</div>
+      <div class="brand-desc">Soft, globally wearable pieces with an Indian material base. Understated design with strong wardrobe integration.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Contemporary</span>
+        <span class="brand-tag">Soft</span>
+        <span class="brand-tag">Global</span>
       </div>
     </div>
 
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://assets.vogue.in/photos/5ce44c909cc0c0e0e8f9ff27/2:3/w_2240,c_limit/Huemn-at-Amazon-India-Fashion-Week-autumn-winter-2017.jpg" alt="Huemn" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #1A1A2A, #3A3A5A);">Huemn</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-u">Unisex</span></div>
-        <div class="brand-name"><a href="https://huemn.in/" target="_blank" rel="noopener noreferrer">Huemn</a></div>
-        <div class="brand-founder">Shyma Shetty &amp; Pranav Misra · Est. 2013</div>
-        <div class="brand-desc">Graphic, bold, and politically aware. Sits at the intersection of streetwear and craft.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹5,000 – ₹22,000</div>
-          <div class="brand-fit">Street + cultural commentary.</div>
-        </div>
+    <!-- Lafaani -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://cdn.shopify.com/s/files/1/0520/2771/9836/files/DSC03002.jpg?v=1707976931"
+          alt="Lafaani"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#1e2218;">Lafaani</div>
+      </div>
+      <div class="brand-name">Lafaani</div>
+      <div class="brand-founder">Est. c. 2020s</div>
+      <div class="brand-desc">A quiet, design-led label built around material sensitivity and everyday wearability. Clean silhouettes, restrained palette, and a focus on pieces that integrate seamlessly into a modern wardrobe.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Menswear</span>
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Everyday</span>
+        <span class="brand-tag">Minimal</span>
+        <span class="brand-tag">Contemporary</span>
       </div>
     </div>
 
-    <div class="brand-card">
-      <div class="brand-img-wrap"><img class="brand-img" src="https://www.cordstudio.in/cdn/shop/files/DSCF1480_900x.jpg?v=1754907272" alt="Cord" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></div>
-      <div class="brand-img-ph" style="display:none; background: linear-gradient(135deg, #1A3A2A, #2A6A4A);">Cord</div>
-      <div class="brand-body">
-        <div class="brand-tags"><span class="brand-tag tag-w">Women</span><span class="brand-tag tag-m">Men</span></div>
-        <div class="brand-name"><a href="https://cordstudio.in/" target="_blank" rel="noopener noreferrer">Cord</a></div>
-        <div class="brand-founder">Neha Singh &amp; Pranav Guglani · Est. 2015</div>
-        <div class="brand-desc">Clean silhouettes with a globally fluent sensibility. Versatile, wearable, and commercially reliable.</div>
-        <div class="brand-footer">
-          <div class="brand-price"><span>Price Range</span>₹5,500 – ₹22,000</div>
-          <div class="brand-fit">Accessible, modern, versatile.</div>
-        </div>
+    <!-- Mati -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://www.stylemati.in/cdn/shop/files/mati-accessories-egg-shell-striped-tote-bag-buy-handwoven-pure-cotton-bag-by-mati-sustainable-ethical-luxury-brand-1219687947.jpg?v=1770460296&width=1000"
+          alt="Mati"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#2a201a;">Mati</div>
+      </div>
+      <div class="brand-name">Mati</div>
+      <div class="brand-founder">Fatima K. Punjaabi · Est. 2017</div>
+      <div class="brand-desc">Handwoven cotton essentials with a clear ethical framework. Designed for daily use with long-term value.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Craft</span>
+        <span class="brand-tag">Everyday</span>
+        <span class="brand-tag">Textile-led</span>
       </div>
     </div>
+
+    <!-- Lovebirds -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://lovebirds-studio.com/cdn/shop/files/0E7A8778.jpg?crop=center&height=5196&v=1771085681&width=3464"
+          alt="Lovebirds"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#2a1a22;">Lovebirds</div>
+      </div>
+      <div class="brand-name">Lovebirds</div>
+      <div class="brand-founder">Siddhartha Tytler, Shingai Mutasa · Est. 2009</div>
+      <div class="brand-desc">Refined, modern clothing with subtle character. Consistent design language that supports repeat purchase.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Contemporary</span>
+        <span class="brand-tag">Minimal</span>
+        <span class="brand-tag">Structured</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
 
-<!-- ══ PROOF STRIP ═══════════════════════════════════════════════════ -->
+<!-- ══ CATEGORY V — EXPERIMENTAL / EDGE ═════════════════════════════════ -->
+<div class="cat-section">
+  <div class="cat-header">
+    <span class="cat-roman">Category V</span>
+    <div class="cat-name">Experimental / Edge</div>
+    <div class="cat-tagline">Editorial, culture, energy</div>
+  </div>
+
+  <div class="brand-grid">
+
+    <!-- IKAI -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://assets.vogue.in/photos/5d9dcd94e6f5b200081e5d97/master/w_1024%2Cc_limit/LMIFW-SS-20-D1-S1a-Ragini-Ahuja-Runway-111.JPG"
+          alt="IKAI by Ragini Ahuja"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#1e261a;">IKAI</div>
+      </div>
+      <div class="brand-name">IKAI</div>
+      <div class="brand-founder">Ragini Ahuja · Est. 2013</div>
+      <div class="brand-desc">Structured, conceptual silhouettes with an architectural approach. Pushes beyond conventional garment logic.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Conceptual</span>
+        <span class="brand-tag">Structured</span>
+        <span class="brand-tag">Experimental</span>
+      </div>
+    </div>
+
+    <!-- Antar-Agni -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://antar-agni.com/cdn/shop/products/1_190a5f77-9bf6-450d-88cb-ae173d01654a.jpg?v=1737377033&width=1000"
+          alt="Antar-Agni"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#222222;">Antar-Agni</div>
+      </div>
+      <div class="brand-name">Antar-Agni</div>
+      <div class="brand-founder">Ujjawal Dubey · Est. 2013</div>
+      <div class="brand-desc">Draped, sculptural forms that sit between tradition and modernity. Strong design language with formal depth.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Menswear</span>
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Draped</span>
+        <span class="brand-tag">Conceptual</span>
+      </div>
+    </div>
+
+    <!-- Huemn -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://assets.vogue.in/photos/5ce44c909cc0c0e0e8f9ff27/2:3/w_2240,c_limit/Huemn-at-Amazon-India-Fashion-Week-autumn-winter-2017.jpg"
+          alt="Huemn"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#1a1a28;">Huemn</div>
+      </div>
+      <div class="brand-name">Huemn</div>
+      <div class="brand-founder">Shyma Shetty, Pranav Misra · Est. 2013</div>
+      <div class="brand-desc">Graphic, message-driven clothing rooted in Indian context. Combines political awareness with contemporary streetwear.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Menswear</span>
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Street</span>
+        <span class="brand-tag">Graphic</span>
+      </div>
+    </div>
+
+    <!-- Day & Age -->
+    <div class="brand-block">
+      <div class="brand-img-wrap">
+        <img class="brand-img"
+          src="https://dayandage.in/cdn/shop/files/Untitled-1-06.jpg?v=1725990027&width=3840"
+          alt="Day &amp; Age"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="brand-img-ph" style="display:none; background:#201e1a;">Day &amp; Age</div>
+      </div>
+      <div class="brand-name">Day &amp; Age</div>
+      <div class="brand-founder">Est. c. 2021</div>
+      <div class="brand-desc">Concept-led garments built around material exploration and narrative. Designed as objects of thought as much as clothing.</div>
+      <div class="brand-tags">
+        <span class="brand-tag">Menswear</span>
+        <span class="brand-tag">Womenswear</span>
+        <span class="brand-tag">Conceptual</span>
+        <span class="brand-tag">Material-led</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══ PROOF STRIP ═══════════════════════════════════════════════════════ -->
 <div class="proof-strip">
   <div class="proof-item">
     <div class="proof-num">25</div>
@@ -1184,8 +1413,8 @@ Plant-based dyes, earthy palette, and minimal silhouettes. Fabric feel is centra
     <div class="proof-label">Creative categories</div>
   </div>
   <div class="proof-item">
-    <div class="proof-num">₹8K–25K</div>
-    <div class="proof-label">Volume sweet spot</div>
+    <div class="proof-num">₹6K–80K</div>
+    <div class="proof-label">Price range across the edit</div>
   </div>
   <div class="proof-item">
     <div class="proof-num">3</div>
@@ -1194,20 +1423,20 @@ Plant-based dyes, earthy palette, and minimal silhouettes. Fabric feel is centra
 </div>
 
 
-<!-- ══ CLOSING ════════════════════════════════════════════════════════ -->
+<!-- ══ CLOSING ════════════════════════════════════════════════════════════ -->
 <div class="closing">
-  <div class="closing-eyebrow">And-a-Man · The Edit</div>
+  <span class="eyebrow">And-a-Man · The Edit</span>
   <div class="closing-main">
     "Indian design doesn't need<br>
     validation anymore.<br>
     It needs a platform that<br>
     <span>understands it."</span>
   </div>
-  <div class="closing-secondary">
-    That's what we are building.
-  </div>
+  <div class="closing-rule"></div>
+  <div class="closing-sub">That's what we are building.</div>
   <div class="closing-wordmark">And-a-Man</div>
 </div>
+
 
 </body>
 </html>
